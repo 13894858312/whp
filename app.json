@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/search/index/index",
+    "pages/admin/alarmInfo/alarmInfo",
+    "pages/admin/alarmList/alarmList",
+    "pages/admin/password/password",
+    "pages/common/map/map",
+    "pages/common/prompt/prompt",
+    "pages/search/alarm/alarm",
+    "pages/search/chemInfo/chemInfo",
+    "pages/search/circulation/circulation",
+    "pages/search/tdcode/tdcode"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "化学品危险信息流转识别系统",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#476AF6",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/search/index/index",
+        "iconPath": "image/search.png",
+        "selectedIconPath": "image/search_hl.png",
+        "text": "信息查询"
+      },
+      {
+        "pagePath": "pages/admin/alarmList/alarmList",
+        "iconPath": "image/message.png",
+        "selectedIconPath": "image/message_hl.png",
+        "text": "报警管理"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
