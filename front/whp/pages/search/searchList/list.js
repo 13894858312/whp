@@ -1,4 +1,4 @@
-// pages/search/tdcode/tdcode.js
+// pages/search/searchList/list.js
 Page({
 
   /**
