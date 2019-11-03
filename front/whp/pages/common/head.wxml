@@ -1,0 +1,5 @@
+<template name="head">
+  <view id="head">
+    {{title}}
+  </view>
+</template>

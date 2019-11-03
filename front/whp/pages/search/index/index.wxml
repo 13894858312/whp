@@ -1,2 +1,23 @@
 <!--pages/search/index/index.wxml-->
-<text>pages/search/index/index.wxml</text>
+<import src="/pages/common/head.wxml"/>
+<template is="head" data="{{title: '化学品信息查询'}}"/>
+<view id="searchView">
+  <picker class="searchItem" id="typePicker" bindchange="bindPickerChange" name="searchType" value="{{picker}}" range="{{typeList}}">
+    {{typeList[picked]}}
+    <text class="iconfont icon-arrow-down" style="font-size:40rpx;color:#333333;"></text>
+  </picker>
+  <input class="searchItem" id="searchInput" placeholder="请输入化学品{{typeList[picked]}}"></input>
+  <text class="iconfont icon-QRcode" style="font-size:80rpx;color:#333333;" bindtap="bindQRcode"></text>
+  <button class="searchItem" id="searchButton" bindtap="doSearch">搜索</button>
+</view>
+<view id="historyView">
+  <view id="historyTitle">历史记录</view>
+  <view id="historyList" wx:for="{{historyList}}">
+    <view class="historyItem" bindtap="bindHistoryItem">
+      <text class="iconfont icon-clock" style="font-size:60rpx;color:#333333;margin-right:10rpx;"></text>
+      <view style="width:80%">{{item}}</view>
+      <text class="iconfont icon-arrow-right" style="font-size:40rpx;color:#333333;position:absolute;right:40rpx;"></text>
+    </view>
+  </view>
+</view>
+

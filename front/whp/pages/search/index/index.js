@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    typeList:['名称','CAS'],
+    picked:0,
+    historyList:['甲烷','乙烷']
   },
 
   /**
@@ -62,5 +64,24 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  bindPickerChange: function (e){
+    this.setData({
+      picked: e.detail.value
+    })
+  },
+
+  bindDoSearch: function(){
+
+  },
+
+  bindHistroyItem: function(e){
+
+  },
+
+  //todo
+  bindQRcode: function(){
+    
   }
 })

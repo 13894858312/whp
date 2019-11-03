@@ -15,7 +15,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "化学品危险信息流转识别系统",
+    "navigationBarTitleText": "高关注化学品信息查询及事件上报",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

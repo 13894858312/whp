@@ -1,1 +1,61 @@
 /* pages/search/index/index.wxss */
+#searchView{
+  margin-top: 50rpx;
+  margin-left: 5%;
+  width: 90%;
+  height: 80rpx;
+  display: inline-flex;
+  border:2rpx solid #333333;
+  border-radius: 8rpx;
+  padding-left: 5rpx;
+  line-height: 80rpx;
+}
+
+#typePicker{
+  width: 20%;
+  padding-left: 5rpx;
+}
+
+#searchInput{
+  width: 55%;
+  border-left: 2rpx solid #333333;
+  padding-left: 10rpx; 
+}
+
+#searchButton{
+  width: 20%;
+  background-color: #476AF6;
+  color: white;
+}
+
+.searchItem{
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 0;
+  font-size: 32rpx;
+}
+
+#historyView{
+  margin: 100rpx 5%;
+  width: 90%;
+  border-bottom:2rpx solid #666666;
+}
+
+#historyTitle{
+  font-size:48rpx;
+  padding-bottom:10rpx;
+}
+
+#historyList{
+  background-color: #eeeeee;
+  padding: 10rpx;
+  border-top: 2rpx solid #666666;
+
+}
+
+.historyItem{
+  display: inline-flex;
+  height:80rpx;
+  line-height: 80rpx;
+  font-size: 40rpx;
+}
