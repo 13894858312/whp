@@ -1,16 +1,8 @@
 {
   "pages": [
     "pages/search/index/index",
-    "pages/admin/alarmInfo/alarmInfo",
-    "pages/admin/alarmList/alarmList",
-    "pages/admin/password/password",
-    "pages/common/map/map",
-    "pages/common/prompt/prompt",
-    "pages/search/alarm/alarm",
-    "pages/search/chemInfo/chemInfo",
-    "pages/search/circulation/circulation",
-    "pages/search/qrcode/qrcode",
-    "pages/search/searchList/list"
+    "pages/search/searchList/list",
+    "pages/admin/alarmList/alarmList"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -40,7 +32,7 @@
   },
   "permission": {
     "scope.userLocation": {
-              "desc": "你的位置信息将用于小程序位置接口的效果展示"
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
   "sitemapLocation": "sitemap.json"

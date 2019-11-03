@@ -8,6 +8,7 @@ Page({
     typeList:['名称','CAS'],
     picked:0,
     historyList:['甲烷','乙烷']
+    //todo：限制长度
   },
 
   /**
@@ -72,7 +73,7 @@ Page({
     })
   },
 
-  bindDoSearch: function(){
+  doSearch: function(){
 
   },
 
