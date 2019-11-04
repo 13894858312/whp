@@ -1,2 +1,49 @@
 <!--pages/admin/alarmList/alarmList.wxml-->
-<text>pages/admin/alarmList/alarmList.wxml</text>
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">报警管理</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-panel">
+            <view class="weui-panel__hd">报警列表</view>
+            <view class="weui-panel__bd">
+                <navigator url='../alarmDetail/alarmDetail'  class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">汞泄露</view>
+                    <view class="weui-media-box__desc">2019-01-01 8:00</view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">5分钟前</view>
+                    </view>
+                </navigator>
+                <navigator url='../alarmDetail/alarmDetail' class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">汞泄露</view>
+                    <view class="weui-media-box__desc">2019-01-01 8:00</view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">5分钟前</view>
+                    </view>
+                </navigator>
+                <navigator url='../alarmDetail/alarmDetail' class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">汞泄露</view>
+                    <view class="weui-media-box__desc">2019-01-01 8:00</view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">5分钟前</view>
+                    </view>
+                </navigator>
+                <navigator url='../alarmDetail/alarmDetail' class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">汞泄露</view>
+                    <view class="weui-media-box__desc">2019-01-01 8:00</view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">5分钟前</view>
+                    </view>
+                </navigator>
+                <navigator url='../alarmDetail/alarmDetail' class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">汞泄露</view>
+                    <view class="weui-media-box__desc">2019-01-01 8:00</view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">5分钟前</view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</view>
+
