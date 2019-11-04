@@ -7,7 +7,16 @@ Page({
   data: {
     typeList:['名称','CAS'],
     picked:0,
-    historyList:['甲烷','乙烷']
+    historyList:[
+      {
+        cas:'12345',
+        name: '甲烷'
+      },
+      {
+        cas:'1234',
+        name:'乙烷'
+      }
+    ]
     //todo：限制长度
   },
 
@@ -74,15 +83,24 @@ Page({
   },
 
   doSearch: function(){
+    wx.navigateTo({
+      url: '/pages/search/searchList/list',
+    })
+  },
+
+  bindHistoryItem: function(e){
 
   },
 
-  bindHistroyItem: function(e){
-
-  },
-
-  //todo
   bindQRcode: function(){
-    
+    wx.scanCode({
+      scanType:['qrCode'],
+      success(res) {
+        console.log(res)
+      },
+      fail(res){
+        console.log(res)
+      }
+    })
   }
 })

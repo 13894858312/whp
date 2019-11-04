@@ -1,2 +1,14 @@
 <!--pages/search/searchList/list.wxml-->
-<text>pages/search/searchList/list.wxml</text>
+<scroll-view class="resultView">
+  <view style="display:flex;margin:20rpx 0rpx 20rpx 0rpx;">
+    <view class="myItem">CAS编码</view>
+    <view class="myItem">名称</view>
+  </view>
+  <view wx:for="{{resultList}}" wx:key="*this">
+    <view class="resultItem" bindtap="checkInfo">
+      <view class="myItem">{{item.cas}}</view>
+      <view class="myItem">{{item.name}}</view>
+      <text class="iconfont icon-arrow-right" style="color:#333333;position:absolute;right:40rpx;"></text>
+    </view>
+  </view>
+</scroll-view>

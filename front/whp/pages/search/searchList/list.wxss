@@ -1,1 +1,21 @@
 /* pages/search/searchList/list.wxss */
+.resultView{
+  margin-left:  5%;
+  width: 90%;
+}
+
+.resultItem{
+  border-top: 2rpx solid #666666;
+  display: flex;
+  min-height: 80rpx;
+  line-height: 80rpx;
+  padding: 10rpx;
+  background-color: #fafafa;
+}
+
+.myItem{
+  width: 40%;
+  font-size: 40rpx;
+  margin-left: 10rpx;
+}
+

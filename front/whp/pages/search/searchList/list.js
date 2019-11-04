@@ -5,6 +5,76 @@ Page({
    * 页面的初始数据
    */
   data: {
+    resultList:[
+      {
+        cas:'12345',
+        name:'甲烷kdusdgklkbnjviyvi ob'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      },
+      {
+        cas: '12345',
+        name: '甲烷'
+      }
+    ]
 
   },
 
@@ -61,6 +131,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+
+  },
+
+  checkInfo: function(e){
 
   }
 })
