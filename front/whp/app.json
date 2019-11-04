@@ -2,7 +2,8 @@
   "pages": [
     "pages/search/index/index",
     "pages/search/searchList/list",
-    "pages/admin/alarmList/alarmList"
+    "pages/admin/alarmList/alarmList",
+    "pages/admin/alarmDetail/alarmDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
