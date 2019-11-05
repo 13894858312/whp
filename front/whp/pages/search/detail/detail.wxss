@@ -26,10 +26,14 @@
 }
 
 .itemHead{
-  display: inline-flex;
   width: 100%;
 }
 
 .itemName{
-  width: 90%;
+  display: inline;
+}
+
+.right{
+  display: inline;
+  float: right;
 }

@@ -3,14 +3,14 @@
   <view class="iconfont icon-arrow-lift"></view>
   <view id="headText">报警</view>
 </view>
-<view id="alarmView">
+<view id="infoView">
   <view class="infoItem">
     <view class="itemName">化学品名称：</view>
     <view>{{chemicalName}}</view>
   </view>
   <view class="infoItem">
     <view class="itemName">描述问题：</view>
-    <input placeholder="请输入内容"></input>
+    <input placeholder="请输入内容" value="{{alarmQuestion}}"></input>
   </view>
   <view class="infoItem">
     <view class="itemName">位置信息：</view>
@@ -19,9 +19,9 @@
   </view>
   <view class="infoItem">
     <view class="itemName">备注信息：</view>
-    <input placeholder="请输入内容" style="height: 5em;"></input>
+    <textarea placeholder="请输入内容" style="height: 5em;" value="{{alarmRemark}}"></textarea>
   </view>
 </view>
 <view>
-<button id="submitButton">提交</button>
+  <button id="submitButton" bindtap="alarmSubmit">提交</button>
 </view>

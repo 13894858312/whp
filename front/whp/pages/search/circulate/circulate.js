@@ -6,8 +6,12 @@ Page({
    */
   data: {
     chemicalName: '汞',
+    productNumber: '',
+    enterpriseName: '',
     status:['状态1', '状态2', '状态3'],
-    selected: 0,
+    statusSelected: 0,
+    circulatePosition: '',
+    circulateRemark: ''
   },
 
   /**
@@ -63,6 +67,16 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+
+  },
+
+  statusChange: function (e) {
+    this.setData({
+      statusSelected: e.detail.value
+    })
+  },
+
+  circulateSubmit: function () {
 
   }
 })

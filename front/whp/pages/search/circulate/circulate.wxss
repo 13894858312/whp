@@ -35,7 +35,7 @@
   align-items: center;
 }
 
-input{
+input, textarea{
   border: 1px solid gainsboro;
   padding: 10rpx;
   width: 68%;

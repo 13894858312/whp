@@ -6,6 +6,9 @@ Page({
    */
   data: {
     chemicalName: '汞',
+    alarmQuestion: '',
+    alarmPosition: '',
+    alarmRemark: ''
   },
 
   /**
@@ -61,6 +64,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+
+  },
+
+  alarmSubmit: function () {
 
   }
 })
