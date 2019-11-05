@@ -1,0 +1,35 @@
+/* pages/search/detail/detail.wxss */
+#detailHead{
+  display: inline-flex;
+  width: 90%;
+  margin-bottom: 50rpx;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#detailName{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.chemicalItem{
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  border-top: 1rpx solid gainsboro;
+  font-size: 32rpx;
+}
+
+.itemHead{
+  display: inline-flex;
+  width: 100%;
+}
+
+.itemName{
+  width: 90%;
+}

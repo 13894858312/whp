@@ -1,0 +1,67 @@
+<!--pages/search/detail/detail.wxml-->
+<view id="detailHead">
+  <view class="iconfont icon-arrow-lift"></view>
+  <view id="detailName">{{chemicalName}}</view>
+</view>
+<view>
+  <view class="chemicalItem">
+    <view class="itemHead">
+      <view class="itemName">基本信息</view>
+      <view class="iconfont icon-arrow-down"></view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead">
+      <view class="itemName">理化特性</view>
+      <view class="iconfont icon-arrow-down"></view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead">
+      <view class="itemName">稳定性和反应性</view>
+      <view class="iconfont icon-arrow-down"></view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead">
+      <view class="itemName">危险性概述</view>
+      <view class="iconfont icon-arrow-down"></view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead">
+      <view class="itemName">GHS危害性分类</view>
+      <view class="iconfont icon-arrow-down"></view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead">
+      <view class="itemName">操作处置与储存</view>
+      <view class="iconfont icon-arrow-down"></view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead">
+      <view class="itemName">接触控制/个体防护</view>
+      <view class="iconfont icon-arrow-down"></view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead">
+      <view class="itemName">急救措施</view>
+      <view class="iconfont icon-arrow-down"></view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead">
+      <view class="itemName">泄露应急处理</view>
+      <view class="iconfont icon-arrow-down"></view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead">
+      <view class="itemName">废弃处置</view>
+      <view class="iconfont icon-arrow-down"></view>
+    </view>
+  </view>
+</view>

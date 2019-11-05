@@ -1,0 +1,27 @@
+<!--pages/search/alarm/alarm.wxml-->
+<view id="head">
+  <view class="iconfont icon-arrow-lift"></view>
+  <view id="headText">报警</view>
+</view>
+<view id="alarmView">
+  <view class="infoItem">
+    <view class="itemName">化学品名称：</view>
+    <view>{{chemicalName}}</view>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">描述问题：</view>
+    <input placeholder="请输入内容"></input>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">位置信息：</view>
+    <input placeholder="坐标" style="width: 45%"></input>
+    <button id="mapButton">地图</button>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">备注信息：</view>
+    <input placeholder="请输入内容" style="height: 5em;"></input>
+  </view>
+</view>
+<view>
+<button id="submitButton">提交</button>
+</view>

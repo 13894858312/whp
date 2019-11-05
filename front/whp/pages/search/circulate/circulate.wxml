@@ -1,0 +1,38 @@
+<!--pages/search/circulate/circulate.wxml-->
+<view id="head">
+  <view class="iconfont icon-arrow-lift"></view>
+  <view id="headText">上报流转信息</view>
+</view>
+<view id="infoView">
+  <view class="infoItem">
+    <view class="itemName">化学品名称：</view>
+    <view>{{chemicalName}}</view>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">产品批号：</view>
+    <input placeholder="请输入内容"></input>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">企业名称：</view>
+    <input placeholder="请输入内容"></input>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">状态选择：</view>
+    <picker bindchange="statusChange" value="{{index}}" range="{{status}}">
+      {{status[selected]}}
+      <view class="iconfont icon-arrow-down right"></view>
+    </picker>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">位置信息：</view>
+    <input placeholder="坐标" style="width: 45%"></input>
+    <button id="mapButton">地图</button>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">备注信息：</view>
+    <input placeholder="请输入内容" style="height: 5em;"></input>
+  </view>
+</view>
+<view>
+<button id="submitButton">提交</button>
+</view>
