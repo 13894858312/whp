@@ -1,6 +1,5 @@
 <!--pages/search/alarm/alarm.wxml-->
 <view id="head">
-  <view class="iconfont icon-arrow-lift"></view>
   <view id="headText">报警</view>
 </view>
 <view id="infoView">

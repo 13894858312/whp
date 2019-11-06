@@ -135,6 +135,8 @@ Page({
   },
 
   checkInfo: function(e){
-
+    wx.navigateTo({
+      url: '/pages/search/detail/detail',
+    })
   }
 })

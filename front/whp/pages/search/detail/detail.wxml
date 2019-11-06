@@ -1,67 +1,86 @@
 <!--pages/search/detail/detail.wxml-->
 <view id="detailHead">
-  <view class="iconfont icon-arrow-lift"></view>
   <view id="detailName">{{chemicalName}}</view>
 </view>
-<view>
+<view id="infoView">
   <view class="chemicalItem">
-    <view class="itemHead">
+    <view class="itemHead" bindtap="basicInfoTap">
       <view class="itemName">基本信息</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
+    <view class="itemInfo" hidden="{{basicInfoHidden}}">{{basicInfo}}</view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead">
+    <view class="itemHead" bindtap="physicochemeclaPropertyTap">
       <view class="itemName">理化特性</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
+    <view class="itemInfo" hidden="{{physicochemeclaPropertyHidden}}">{{physicochemeclaProperty}}</view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead">
+    <view class="itemHead" bindtap="stabilityAndReactivityTap">
       <view class="itemName">稳定性和反应性</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
+    <view class="itemInfo" hidden="{{stabilityAndReactivityHidden}}">{{stabilityAndReactivity}}</view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead">
+    <view class="itemHead" bindtap="dangerTap">
       <view class="itemName">危险性概述</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
+    <view class="itemInfo" hidden="{{dangerHidden}}">{{danger}}</view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead">
+    <view class="itemHead" bindtap="GHSTap">
       <view class="itemName">GHS危害性分类</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
+    <view class="itemInfo" hidden="{{GHSHidden}}">{{GHS}}</view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead">
+    <view class="itemHead" bindtap="handleAndStorageTap">
       <view class="itemName">操作处置与储存</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
+    <view class="itemInfo" hidden="{{handleAndStorageHidden}}">{{handleAndStorage}}</view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead">
+    <view class="itemHead" bindtap="touchControlTap">
       <view class="itemName">接触控制/个体防护</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
+    <view class="itemInfo" hidden="{{touchControlHidden}}">{{touchControl}}</view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead">
+    <view class="itemHead" bindtap="firstaidMeasureTap">
       <view class="itemName">急救措施</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
+    <view class="itemInfo" hidden="{{firstaidMeasureHidden}}">{{firstaidMeasure}}</view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead">
+    <view class="itemHead" bindtap="leakTreatmentTap">
       <view class="itemName">泄露应急处理</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
+    <view class="itemInfo" hidden="{{leakTreatmentHidden}}">{{leakTreatment}}</view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead">
+    <view class="itemHead" bindtap="disposalTap">
       <view class="itemName">废弃处置</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
+    <view class="itemInfo" hidden="{{disposalHidden}}">{{disposal}}</view>
+  </view>
+</view>
+<view id="navigator">
+  <view class="navigatorItem" style="border-right: 1px solid gainsboro;" bindtap="toCirculate">
+    <image src="../../../image/circulation.png" class="navigatorImg" mode="scaleToFill"></image>
+    上报流转信息
+  </view>
+  <view class="navigatorItem" bindtap="toAlarm">
+    <image src="../../../image/alarm.png" class="navigatorImg" mode="scaleToFill"></image>
+    报警
   </view>
 </view>

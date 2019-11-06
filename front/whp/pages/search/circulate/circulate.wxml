@@ -1,6 +1,5 @@
 <!--pages/search/circulate/circulate.wxml-->
 <view id="head">
-  <view class="iconfont icon-arrow-lift"></view>
   <view id="headText">上报流转信息</view>
 </view>
 <view id="infoView">
