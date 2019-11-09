@@ -49,7 +49,7 @@ Page({
             detail: res.data.data
           });
 
-          //by wx 用于存储历史记录
+          //用于存储历史记录
           var now = {
             id: that.data.detail.id,
             cas: that.data.detail.cas,
@@ -70,15 +70,12 @@ Page({
               i++;
             }
             history.push(now);
-            //限制5个
-            if(history.length > 5){
+            //限制个数、变量在app.js
+            if(history.length > getApp().globalData.limitHistory){
               history.splice(0, 1);
             }
           }
-          wx.setStorage({
-            key: 'history',
-            data: JSON.stringify(history)
-          });
+          wx.setStorageSync('history', JSON.stringify(history));
         }
       }
     });

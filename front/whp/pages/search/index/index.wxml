@@ -9,7 +9,7 @@
         {{typeList[picked]}}
         <text class="iconfont icon-arrow-down" style="font-size:40rpx;color:#333333;"></text>
       </picker>
-      <input class="searchItem" id="searchInput" placeholder="请输入化学品{{typeList[picked]}}" name="input"></input>
+      <input class="searchItem" id="searchInput" placeholder="请输入化学品{{typeList[picked]}}" name="input" value="{{nothing}}"></input>
       <text class="iconfont icon-QRcode" style="font-size:80rpx;color:#333333;" bindtap="bindQRcode"></text>
       <button class="searchItem" id="searchButton" form-type="submit">搜索</button>
     </view>

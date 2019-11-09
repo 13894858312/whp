@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
+    limitHistory: 5,
     userInfo: null
   },
 })

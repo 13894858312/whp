@@ -38,7 +38,7 @@ Page({
 
   checkInfo: function(e){
     var id = e.currentTarget.dataset.id;
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/search/detail/detail?chemicalId='+id,
     })
   }
