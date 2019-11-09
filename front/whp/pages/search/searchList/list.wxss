@@ -1,6 +1,7 @@
 /* pages/search/searchList/list.wxss */
 .resultView{
   margin-left:  5%;
+  margin-top: 10rpx;
   width: 90%;
 }
 
@@ -18,4 +19,3 @@
   font-size: 40rpx;
   margin-left: 10rpx;
 }
-

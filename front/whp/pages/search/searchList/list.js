@@ -5,138 +5,41 @@ Page({
    * 页面的初始数据
    */
   data: {
-    resultList:[
-      {
-        cas:'12345',
-        name:'甲烷kdusdgklkbnjviyvi ob'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      },
-      {
-        cas: '12345',
-        name: '甲烷'
-      }
-    ]
-
+    resultList: undefined,
+    length: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    var that = this;
+    wx.request({
+      url: 'http://120.55.54.247:8090/chemical/getChemicals',
+      data: {cas: options.cas, name: options.name},
+      method: 'post',
+      success: function(res){
+        if(res.data.code != 0){
+          wx.showToast({
+            title: '获取数据失败',
+          })
+        }else{
+          that.setData({
+            resultList: res.data.data,
+            length: res.data.data.length
+          })
+        }
+      },
+      fail: function(err){
+        console.log(err)
+      }
+    })
   },
 
   checkInfo: function(e){
+    var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/search/detail/detail',
+      url: '/pages/search/detail/detail?chemicalId='+id,
     })
   }
 })

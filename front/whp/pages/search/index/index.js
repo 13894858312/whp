@@ -7,73 +7,18 @@ Page({
   data: {
     typeList:['名称','CAS'],
     picked:0,
-    historyList:[
-      {
-        cas:'12345',
-        name: '甲烷'
-      },
-      {
-        cas:'1234',
-        name:'乙烷'
-      }
-    ]
-    //todo：限制长度
+    historyList:undefined
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onLoad: function(options){
+    var that = this;
+    var history = wx.getStorageSync('history');
+    if(history != ''){
+      that.setData({
+        historyList: JSON.parse(history)
+      })
+    }
+    console.log(that.data.historyList);
   },
 
   bindPickerChange: function (e){
@@ -82,10 +27,26 @@ Page({
     })
   },
 
-  doSearch: function(){
-    wx.navigateTo({
-      url: '/pages/search/searchList/list',
-    })
+  doSearch: function(e){
+    var input = e.detail.value.input;
+    if(input == ''){
+      wx.showModal({
+        title: '提示',
+        content: '请输入搜索内容'
+      });
+    }else{
+      var picked = this.data.picked;
+      var param = '';
+      if(picked == 0){
+        param = '?name=' + input;
+      }else if(picked == 1){
+        param = '?cas=' + input;
+      }
+
+      wx.navigateTo({
+        url: '/pages/search/searchList/list' + param,
+      })
+    }
   },
 
   bindHistoryItem: function(e){
@@ -96,7 +57,11 @@ Page({
     wx.scanCode({
       scanType:['qrCode'],
       success(res) {
-        console.log(res)
+        if (res.errMsg == 'scanCode:ok') {
+          wx.navigateTo({
+            url: res.result
+          })
+        }
       },
       fail(res){
         console.log(res)

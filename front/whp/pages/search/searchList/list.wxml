@@ -1,14 +1,23 @@
 <!--pages/search/searchList/list.wxml-->
+
+<import src="/pages/common/head.wxml"/>
+<template is="head" data="{{title: '搜索结果'}}"/>
+
 <scroll-view class="resultView">
-  <view style="display:flex;margin:20rpx 0rpx 20rpx 0rpx;">
-    <view class="myItem">CAS编码</view>
-    <view class="myItem">名称</view>
-  </view>
-  <view wx:for="{{resultList}}" wx:key="*this">
-    <view class="resultItem" bindtap="checkInfo">
-      <view class="myItem">{{item.cas}}</view>
-      <view class="myItem">{{item.name}}</view>
-      <text class="iconfont icon-arrow-right" style="color:#333333;position:absolute;right:40rpx;"></text>
+  <block wx:if="{{resultList.length > 0}}">
+    <view style="display:flex;margin:20rpx 0rpx 20rpx 0rpx;">
+      <view class="myItem">CAS编码</view>
+      <view class="myItem">名称</view>
     </view>
-  </view>
+    <view wx:for="{{resultList}}" wx:key="{{item.id}}">
+      <view class="resultItem" data-id="{{item.id}}" bindtap="checkInfo">
+        <view class="myItem">{{item.cas}}</view>
+        <view class="myItem">{{item.cnName}}</view>
+        <text class="iconfont icon-arrow-right" style="color:#333333;position:absolute;right:40rpx;"></text>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{resultList.length <= 0}}">
+    <view>没有找到符合条件的数据</view>
+  </block>
 </scroll-view>

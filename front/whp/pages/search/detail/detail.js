@@ -4,6 +4,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    //by wx 化学品详情
+    detail:undefined,
+    //
     chemicalName: '汞',
     basicInfo: '基本信息',
     physicochemeclaProperty: '理化特性',
@@ -31,7 +34,44 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //by wx 加载detail数据
+    var that = this;
+    wx.request({
+      url: 'http://120.55.54.247:8090/chemical/getDetail',
+      data: {chemicalId : options.chemicalId},
+      method :'get',
+      success: function(res){
+        if (res.data.code != 0) {
+          wx.showToast({
+            title: '获取数据失败',
+          })
+        } else {
+          that.setData({
+            detail: res.data.data
+          });
 
+          //by wx 用于存储历史记录
+          var now = {
+            id: that.data.detail.id,
+            cas: that.data.detail.cas,
+            name: that.data.detail.cnName
+          };
+          var history = wx.getStorageSync('history');
+          if(history == ''){
+            history = [now];
+          }else{
+            history = JSON.parse(history);
+            history.push(now);
+          }
+
+          console.log(history)
+          wx.setStorage({
+            key: 'history',
+            data: JSON.stringify(history)
+          });
+        }
+      }
+    });
   },
 
   /**
