@@ -1,5 +1,4 @@
 Page({
-  LIMIT_NUM : 5,
   /**
    * 页面的初始数据
    */
@@ -71,8 +70,8 @@ Page({
               i++;
             }
             history.push(now);
-            //限制limit_num个
-            if(history.length > LIMIT_NUM){
+            //限制5个
+            if(history.length > 5){
               history.splice(0, 1);
             }
           }

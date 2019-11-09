@@ -49,8 +49,11 @@ Page({
     }
   },
 
-  bindHistoryItem: function(e){
-
+  bindHistoryItem: function (e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/search/detail/detail?chemicalId=' + id,
+    })
   },
 
   bindQRcode: function(){
