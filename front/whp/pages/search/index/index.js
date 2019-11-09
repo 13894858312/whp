@@ -15,10 +15,10 @@ Page({
     var history = wx.getStorageSync('history');
     if(history != ''){
       that.setData({
-        historyList: JSON.parse(history)
+        //翻转使时间倒序
+        historyList: JSON.parse(history).reverse()
       })
     }
-    console.log(that.data.historyList);
   },
 
   bindPickerChange: function (e){

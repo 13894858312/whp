@@ -1,5 +1,5 @@
 Page({
-
+  LIMIT_NUM : 5,
   /**
    * 页面的初始数据
    */
@@ -61,10 +61,21 @@ Page({
             history = [now];
           }else{
             history = JSON.parse(history);
+            //非常蠢的去重
+            var i = 0;
+            while(i < history.length){
+              if(history[i].id == now.id){
+                history.splice(i, 1);
+                break;
+              }
+              i++;
+            }
             history.push(now);
+            //限制limit_num个
+            if(history.length > LIMIT_NUM){
+              history.splice(0, 1);
+            }
           }
-
-          console.log(history)
           wx.setStorage({
             key: 'history',
             data: JSON.stringify(history)
