@@ -3,22 +3,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //by wx 化学品详情
     detail:undefined,
-    //
-    chemicalName: '汞',
-    basicInfo: '基本信息',
-    physicochemeclaProperty: '理化特性',
-    stabilityAndReactivity: '稳定性和反应性',
-    danger: '危险性概述',
-    GHS: 'GHS危害性分类',
-    handleAndStorage: '操作处置与储存',
-    touchControl: '接触控制/个体防护',
-    firstaidMeasure: '急救措施',
-    leakTreatment: '泄露应急处理',
-    disposal: '废弃处置',
     basicInfoHidden: true,
-    physicochemeclaPropertyHidden: true,
+    propertyHidden: true,
     stabilityAndReactivityHidden: true,
     dangerHidden: true,
     GHSHidden: true,
@@ -44,11 +31,11 @@ Page({
           wx.showToast({
             title: '获取数据失败',
           })
-        } else {
+        }
+        else {
           that.setData({
             detail: res.data.data
           });
-
           //用于存储历史记录
           var now = {
             id: that.data.detail.id,
@@ -58,7 +45,8 @@ Page({
           var history = wx.getStorageSync('history');
           if(history == ''){
             history = [now];
-          }else{
+          }
+          else{
             history = JSON.parse(history);
             //非常蠢的去重
             var i = 0;
@@ -136,9 +124,9 @@ Page({
     })
   },
 
-  physicochemeclaPropertyTap: function (e) {
+  propertyTap: function (e) {
     this.setData({
-      physicochemeclaPropertyHidden: !this.data.physicochemeclaPropertyHidden
+      propertyHidden: !this.data.propertyHidden
     })
   },
 
@@ -191,14 +179,20 @@ Page({
   },
 
   toCirculate: function (e){
+    var url = '/pages/search/circulate/circulate'
+    var param = '?chemicalId=' + this.data.detail.id + '&chemicalName=' + this.data.detail.cnName
+    url = url + param
     wx.navigateTo({
-      url: '/pages/search/circulate/circulate',
+      url: url
     })
   },
 
   toAlarm: function (e) {
+    var url = '/pages/search/alarm/alarm'
+    var param = '?chemicalId=' + this.data.detail.id + '&chemicalName=' + this.data.detail.cnName
+    url = url + param
     wx.navigateTo({
-      url: '/pages/search/alarm/alarm',
+      url: url
     })
   }
 

@@ -45,6 +45,10 @@
   margin-top: 5%;
 }
 
+.lineInfo{
+  margin-bottom: 2%;
+}
+
 #navigator{
   display: inline-flex;
   position : fixed;

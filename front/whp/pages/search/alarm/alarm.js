@@ -5,17 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    chemicalName: '汞',
-    alarmQuestion: '',
-    alarmPosition: '',
-    alarmRemark: ''
+    chemicalId: '',
+    chemicalName: '',
+    position: {
+      longitude: '',
+      latitude: ''
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      chemicalId: options.chemicalId,
+      chemicalName: options.chemicalName
+    })
   },
 
   /**
@@ -67,7 +72,52 @@ Page({
 
   },
 
-  alarmSubmit: function () {
+  locate: function(){
+    var that = this
+    wx.chooseLocation({
+      success: function (res) {
+        that.setData({
+          position: {
+            longitude: res.longitude,
+            latitude: res.latitude
+          },
+        })
+      },
+    })
+  },
 
+  alarmSubmit: function (e) {
+    var alarmData = e.detail.value;
+    alarmData.position = alarmData.position.replace(/\s+/g, '')
+    if (alarmData.question == "") {
+      wx.showToast({
+        title: '未填写描述问题',
+        icon: 'none'
+      })
+    }
+    else if (alarmData.position == "" || alarmData.position == ",") {
+      wx.showToast({
+        title: '未填写位置信息',
+        icon: 'none'
+      })
+    }
+    else {
+      alarmData.chemicalId = this.data.chemicalId
+      wx.request({
+        url: 'http://120.55.54.247:8090/alarm/add',
+        method: 'post',
+        header: {
+          // 'content-type': 'application/x-www-form-urlencoded'
+          'content-type': 'application/json'
+        },
+        data: alarmData,
+        success: function (res) {
+          wx.showToast({
+            title: '提交成功',
+          })
+          console.log(res.data)
+        }
+      });
+    }
   }
 })

@@ -1,6 +1,6 @@
 <!--pages/search/detail/detail.wxml-->
 <view id="detailHead">
-  <view id="detailName">{{chemicalName}}</view>
+  <view id="detailName">{{detail.cnName}}</view>
 </view>
 <view id="infoView">
   <view class="chemicalItem">
@@ -8,70 +8,77 @@
       <view class="itemName">基本信息</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{basicInfoHidden}}">{{basicInfo}}</view>
+    <view class="itemInfo" hidden="{{basicInfoHidden}}">
+      <view class="lineInfo">中文别名：{{detail.cnAlia}}</view>
+      <view class="lineInfo">英文名称：{{detail.enName}}</view>
+      <view class="lineInfo">英文别名：{{detail.enAlia}}</view>
+      <view class="lineInfo">CAS号：{{detail.cas}}</view>
+      <view class="lineInfo">分子式：{{detail.formula}}</view>
+      <view class="lineInfo">分子量：{{detail.weight}}</view>
+    </view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead" bindtap="physicochemeclaPropertyTap">
+    <view class="itemHead" bindtap="propertyTap">
       <view class="itemName">理化特性</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{physicochemeclaPropertyHidden}}">{{physicochemeclaProperty}}</view>
+    <view class="itemInfo" hidden="{{propertyHidden}}">{{detail.properties}}</view>
   </view>
   <view class="chemicalItem">
     <view class="itemHead" bindtap="stabilityAndReactivityTap">
       <view class="itemName">稳定性和反应性</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{stabilityAndReactivityHidden}}">{{stabilityAndReactivity}}</view>
+    <view class="itemInfo" hidden="{{stabilityAndReactivityHidden}}">{{detail.stability}}</view>
   </view>
   <view class="chemicalItem">
     <view class="itemHead" bindtap="dangerTap">
       <view class="itemName">危险性概述</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{dangerHidden}}">{{danger}}</view>
+    <view class="itemInfo" hidden="{{dangerHidden}}">{{detail.overview}}</view>
   </view>
   <view class="chemicalItem">
     <view class="itemHead" bindtap="GHSTap">
       <view class="itemName">GHS危害性分类</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{GHSHidden}}">{{GHS}}</view>
+    <view class="itemInfo" hidden="{{GHSHidden}}">{{detail.dangerClass}}</view>
   </view>
   <view class="chemicalItem">
     <view class="itemHead" bindtap="handleAndStorageTap">
       <view class="itemName">操作处置与储存</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{handleAndStorageHidden}}">{{handleAndStorage}}</view>
+    <view class="itemInfo" hidden="{{handleAndStorageHidden}}">{{detail.word}}</view>
   </view>
   <view class="chemicalItem">
     <view class="itemHead" bindtap="touchControlTap">
       <view class="itemName">接触控制/个体防护</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{touchControlHidden}}">{{touchControl}}</view>
+    <view class="itemInfo" hidden="{{touchControlHidden}}">{{detail.touchControl}}</view>
   </view>
   <view class="chemicalItem">
     <view class="itemHead" bindtap="firstaidMeasureTap">
       <view class="itemName">急救措施</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{firstaidMeasureHidden}}">{{firstaidMeasure}}</view>
+    <view class="itemInfo" hidden="{{firstaidMeasureHidden}}">{{detail.firstAid}}</view>
   </view>
   <view class="chemicalItem">
     <view class="itemHead" bindtap="leakTreatmentTap">
       <view class="itemName">泄露应急处理</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{leakTreatmentHidden}}">{{leakTreatment}}</view>
+    <view class="itemInfo" hidden="{{leakTreatmentHidden}}">{{detail.leakage}}</view>
   </view>
   <view class="chemicalItem">
     <view class="itemHead" bindtap="disposalTap">
       <view class="itemName">废弃处置</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{disposalHidden}}">{{disposal}}</view>
+    <view class="itemInfo" hidden="{{disposalHidden}}">{{detail.disposal}}</view>
   </view>
 </view>
 <view id="navigator">

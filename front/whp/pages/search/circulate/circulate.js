@@ -5,20 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    chemicalName: '汞',
-    productNumber: '',
-    enterpriseName: '',
-    status:['状态1', '状态2', '状态3'],
+    chemicalId: '',
+    chemicalName: '',
+    status: ['生产', '储存', '运输', '经营', '使用', '废弃'],
     statusSelected: 0,
-    circulatePosition: '',
-    circulateRemark: ''
+    position: {
+      longitude: '',
+      latitude: ''
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      chemicalId: options.chemicalId,
+      chemicalName: options.chemicalName
+    })
   },
 
   /**
@@ -76,7 +80,59 @@ Page({
     })
   },
 
-  circulateSubmit: function () {
+  locate: function(){
+    var that = this
+    wx.chooseLocation({
+      success: function (res) {
+        that.setData({
+          position: {
+            longitude: res.longitude,
+            latitude: res.latitude
+          },
+        })
+      },
+    })
+  },
 
+  circulateSubmit: function (e) {
+    var circularData = e.detail.value
+    circularData.position = circularData.position.replace(/\s+/g, '')
+    if(circularData.bn == ""){
+      wx.showToast({
+        title: '未填写产品批号',
+        icon: 'none'
+      })
+    }
+    else if(circularData.enterprise == ""){
+      wx.showToast({
+        title: '未填写企业名称',
+        icon: 'none'
+      })
+    }
+    else if (circularData.position == "" || circularData.position == ",") {
+      wx.showToast({
+        title: '未填写位置信息',
+        icon: 'none'
+      })
+    }
+    else{
+      circularData.chemicalId = this.data.chemicalId
+      circularData.state = circularData.state + 1
+      wx.request({
+        url: 'http://120.55.54.247:8090/transfer/add',
+        method: 'post',
+        header: {
+          // 'content-type': 'application/x-www-form-urlencoded'
+          'content-type': 'application/json'
+        },
+        data: circularData,
+        success: function (res) {
+          wx.showToast({
+            title: '提交成功',
+          })
+          console.log(res.data)
+        }
+      });
+    }
   }
 })
