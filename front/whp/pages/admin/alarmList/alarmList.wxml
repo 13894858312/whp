@@ -1,4 +1,13 @@
 <!--pages/admin/alarmList/alarmList.wxml-->
+<wxs module="m1">
+  function format(ts) {
+    var d = getDate(ts)
+    return [d.getFullYear(), d.getMonth()+1, d.getDate()].join('-')
+      + ' '
+      + [d.getHours(), d.getMinutes(), d.getSeconds()].join(':')
+  }
+  module.exports.format = format
+</wxs>
 <view class="page">
     <view class="page__hd">
         <view class="page__title">报警管理</view>
@@ -6,42 +15,19 @@
     <view class="page__bd">
         <view class="weui-panel">
             <view class="weui-panel__hd">报警列表</view>
-            <view class="weui-panel__bd">
-                <navigator url='../alarmDetail/alarmDetail'  class="weui-media-box weui-media-box_text">
-                    <view class="weui-media-box__title weui-media-box__title_in-text">汞泄露</view>
-                    <view class="weui-media-box__desc">2019-01-01 8:00</view>
+            <view wx:if="{{alarmList.length > 0}}">
+              <view class="weui-panel__bd" wx:for="{{alarmList}}" wx:key="{{item.id}}">
+                <view class="weui-media-box weui-media-box_text" bindtap="alarmDetail" data-id="{{item.id}}">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">{{item.chemicalId}}</view>
+                    <view class="weui-media-box__desc">{{m1.format(item.createTime)}}</view>
                     <view class="weui-media-box__info">
-                        <view class="weui-media-box__info__meta">5分钟前</view>
+                      <view class="weui-media-box__info__meta" wx:if="{{(now - item.createTime/1000) < 3600}}">{{(now - item.createTime/1000)/60 | Int}}分钟前</view>
+                      <view class="weui-media-box__info__meta" wx:if="{{3600 <= (now - item.createTime/1000) && (now - item.createTime/1000) < 86400}}">{{(now - item.createTime/1000)/3600 | Int}}小时前</view>
+                      <view class="weui-media-box__info__meta" wx:if="{{86400 <= (now - item.createTime/1000) && (now-item.createTime/1000) < 2592000}}">{{(now - item.createTime/1000)/86400 | Int}}天前</view>
+                      <view class="weui-media-box__info__meta" wx:if="{{2592000 <= (now - item.createTime/1000)}}">{{(now - item.createTime/1000)/86400 | Int}}月前</view>
                     </view>
-                </navigator>
-                <navigator url='../alarmDetail/alarmDetail' class="weui-media-box weui-media-box_text">
-                    <view class="weui-media-box__title weui-media-box__title_in-text">汞泄露</view>
-                    <view class="weui-media-box__desc">2019-01-01 8:00</view>
-                    <view class="weui-media-box__info">
-                        <view class="weui-media-box__info__meta">5分钟前</view>
-                    </view>
-                </navigator>
-                <navigator url='../alarmDetail/alarmDetail' class="weui-media-box weui-media-box_text">
-                    <view class="weui-media-box__title weui-media-box__title_in-text">汞泄露</view>
-                    <view class="weui-media-box__desc">2019-01-01 8:00</view>
-                    <view class="weui-media-box__info">
-                        <view class="weui-media-box__info__meta">5分钟前</view>
-                    </view>
-                </navigator>
-                <navigator url='../alarmDetail/alarmDetail' class="weui-media-box weui-media-box_text">
-                    <view class="weui-media-box__title weui-media-box__title_in-text">汞泄露</view>
-                    <view class="weui-media-box__desc">2019-01-01 8:00</view>
-                    <view class="weui-media-box__info">
-                        <view class="weui-media-box__info__meta">5分钟前</view>
-                    </view>
-                </navigator>
-                <navigator url='../alarmDetail/alarmDetail' class="weui-media-box weui-media-box_text">
-                    <view class="weui-media-box__title weui-media-box__title_in-text">汞泄露</view>
-                    <view class="weui-media-box__desc">2019-01-01 8:00</view>
-                    <view class="weui-media-box__info">
-                        <view class="weui-media-box__info__meta">5分钟前</view>
-                    </view>
-                </navigator>
+                </view>
+              </view>
             </view>
         </view>
     </view>
