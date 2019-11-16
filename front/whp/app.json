@@ -6,7 +6,9 @@
     "pages/search/circulate/circulate",
     "pages/search/alarm/alarm",
     "pages/admin/alarmList/alarmList",
-    "pages/admin/alarmDetail/alarmDetail"
+    "pages/admin/alarmDetail/alarmDetail",
+    "pages/admin/chemical/addChemical",
+    "pages/admin/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,10 +29,10 @@
         "text": "信息查询"
       },
       {
-        "pagePath": "pages/admin/alarmList/alarmList",
+        "pagePath": "pages/admin/index/index",
         "iconPath": "image/message.png",
         "selectedIconPath": "image/message_hl.png",
-        "text": "报警管理"
+        "text": "系统管理"
       }
     ]
   },

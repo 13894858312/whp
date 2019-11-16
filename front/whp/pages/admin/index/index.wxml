@@ -1,0 +1,8 @@
+<!--pages/admin/index/index.wxml-->
+<import src="/pages/common/head.wxml"/>
+<template is="head" data="{{title: '系统管理'}}"/>
+
+<view>
+  <button class="button" bindtap="goAdd">添加化学品</button>
+  <button class="button" bindtap="goAlarm">报警管理</button>
+</view>

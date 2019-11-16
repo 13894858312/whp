@@ -76,6 +76,7 @@ Page({
       scanType:['qrCode'],
       success(res) {
         if (res.errMsg == 'scanCode:ok') {
+          //todo 待修改为cas
           wx.navigateTo({
             url: res.result
           })
