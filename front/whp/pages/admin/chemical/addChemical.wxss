@@ -1,1 +1,33 @@
 /* pages/admin/chemical/addChemical.wxss */
+#addChemicalView{
+  width: 90%;
+  margin-top: 10rpx;
+  margin-left: 4%;
+}
+
+.itemName{
+  padding: 10rpx;
+}
+
+.detailItem input, textarea{
+  margin-top: 10rpx; 
+  margin-bottom: 10rpx;
+  border: 2rpx gainsboro solid;
+  line-height: 40rpx;
+  width: 100%;
+  padding:10rpx;
+}
+
+.detailItem textarea{
+  min-height: 120rpx;
+}
+
+.submitButton{
+  width: 700rpx;
+  background-color: #476AF6;
+  color: white;
+  margin: 50rpx 0 50rpx 0;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+}

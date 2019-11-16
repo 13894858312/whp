@@ -4,5 +4,5 @@
   width: 90%;
   background-color: #476AF6;
   color: white;
-  margin-top: 10rpx;
+  margin-top: 20rpx;
 }
