@@ -30,6 +30,7 @@ Page({
         if (res.data.code != 0) {
           wx.showToast({
             title: '获取数据失败',
+            icon:'none'
           })
         }
         else {

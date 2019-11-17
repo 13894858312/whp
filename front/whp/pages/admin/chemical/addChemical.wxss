@@ -1,33 +1,47 @@
 /* pages/admin/chemical/addChemical.wxss */
+#wholeView{
+  background-color: #efefef;
+}
+
 #addChemicalView{
-  width: 90%;
+  width: 96%;
   margin-top: 10rpx;
-  margin-left: 4%;
+  margin-left: 2%;
+}
+
+.detailItem{
+  background-color: white;
+  padding: 10rpx; 
+  margin: 20rpx 0; 
+  box-shadow: 0 0 6rpx #aaaaaa;
+  border-radius: 2rpx;
 }
 
 .itemName{
   padding: 10rpx;
+  margin-bottom: 5rpx;
+  color: #333333;
 }
 
-.detailItem input, textarea{
-  margin-top: 10rpx; 
-  margin-bottom: 10rpx;
+.detailItem input{
   border: 2rpx gainsboro solid;
   line-height: 40rpx;
-  width: 100%;
   padding:10rpx;
+  border-radius: 2rpx;
 }
 
 .detailItem textarea{
-  min-height: 120rpx;
+  border: 2rpx gainsboro solid;
+  line-height: 40rpx;
+  min-height: 100rpx;
+  padding: 10rpx;
+  box-sizing: border-box;
+  border-radius: 2rpx;
 }
 
 .submitButton{
-  width: 700rpx;
   background-color: #476AF6;
   color: white;
-  margin: 50rpx 0 50rpx 0;
+  margin:30rpx 0 100rpx 0;
   text-align: center;
-  height: 80rpx;
-  line-height: 80rpx;
 }
