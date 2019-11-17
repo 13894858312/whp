@@ -13,16 +13,16 @@
         <input class="weui-input" placeholder="中文名称" name="cnName"></input>
       </view>
       <view class="detailItem">
+        <view class="itemName">英文名（必填）</view>
+        <input class="weui-input" placeholder="英文名称" name="enName"></input>
+      </view>
+      <view class="detailItem">
         <view class="itemName">分子式（必填）</view>
         <input class="weui-input" placeholder="分子式" name="formula"></input>
       </view>
       <view class="detailItem">
         <view class="itemName">分子量（必填）</view>
         <input class="weui-input" type="digit" placeholder="分子量" name="weight"></input>
-      </view>
-      <view class="detailItem">
-        <view class="itemName">英文名（必填）</view>
-        <input class="weui-input" placeholder="英文名称" name="enName"></input>
       </view>
       <view class="detailItem">
         <view class="itemName">中文别名</view>

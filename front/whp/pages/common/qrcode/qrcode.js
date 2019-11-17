@@ -21,27 +21,51 @@ Page({
       header: {
         'content-type': 'application/json'
       },
-      success: function (qrres) {
-        if (qrres.data.code != 0) {
+      success: function (res) {
+        if (res.data.code != 0) {
           wx.showToast({
             title: '生成二维码失败',
             icon: 'none'
           })
         } else {
           that.setData({
-            imageUrl: 'http://120.55.54.247:8090/'+qrres.data.data
+            imageUrl: 'http://120.55.54.247:8090/'+res.data.data
           });
         }
       },
-      fail: function (qrres) {
-        console.log("生成二维码出错，错误信息：" + qrres);
+      fail: function (res) {
+        console.log("生成二维码出错，错误信息：" + res);
       }
     })
   },
 
   saveQrCode: function(){
-    wx.saveImageToPhotosAlbum({
-      filePath: 'http://120.55.54.247:8090/' + qrres.data.data,
+    var that = this;
+    wx.showModal({
+      title: '保存二维码？',
+      success: function(){
+        wx.downloadFile({
+          url: that.data.imageUrl,
+          success: function (res) {
+            var imageFilePath = res.tempFilePath;
+            if (imageFilePath != undefined) {
+              wx.saveImageToPhotosAlbum({
+                filePath: imageFilePath,
+                success: function (data) {
+                  wx.showToast({
+                    title: "保存成功",
+                  })
+                }, fail: function (res) {
+                  wx.showToast({
+                    title: "保存失败",
+                    icon: 'none'
+                  })
+                }
+              })
+            }
+          },
+        })
+      }
     })
   }
 })

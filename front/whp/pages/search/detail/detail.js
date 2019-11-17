@@ -24,7 +24,7 @@ Page({
     var that = this;
     wx.request({
       url: 'http://120.55.54.247:8090/chemical/getDetail',
-      data: {chemicalId : options.chemicalId},
+      data: {chemicalId : options.chemicalId, cas: options.cas},
       method :'get',
       success: function(res){
         if (res.data.code != 0) {

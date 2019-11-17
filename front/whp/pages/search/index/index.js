@@ -78,7 +78,7 @@ Page({
         if (res.errMsg == 'scanCode:ok') {
           //todo 待修改为cas
           wx.navigateTo({
-            url: res.result
+            url: '/pages/search/detail/detail?cas=' + res.data
           })
         }
       },

@@ -32,6 +32,12 @@ Page({
         icon :'none'
       })
     }
+    else if(data.weight <= 0){
+      wx.showToast({
+        title: '分子量需大于0',
+        icon :'none'
+      })
+    }
     else {
       wx.request({
         url: 'http://120.55.54.247:8090/chemical/addChemical',
@@ -49,8 +55,7 @@ Page({
           } else {
             wx.showToast({
               title: '提交成功',
-              icon: 'none',
-              duration: 1000
+              icon: 'none'
             })
             setTimeout(function () {
               wx.redirectTo({

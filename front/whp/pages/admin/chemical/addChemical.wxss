@@ -42,6 +42,6 @@
 .submitButton{
   background-color: #476AF6;
   color: white;
-  margin:30rpx 0 100rpx 0;
+  margin:30rpx 0 60rpx 0;
   text-align: center;
 }

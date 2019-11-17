@@ -2,6 +2,6 @@
 <import src="/pages/common/head.wxml"/>
 <template is="head" data="{{title: '化学品二维码'}}"/>
 <view>
-  <image src="{{imageUrl}}" bindlongpress="saveImage"></image>
+  <image src="{{imageUrl}}" mode="aspectFit" style="width:100%;" bindlongtap="saveQrCode"></image>
   <view style="color: white; text-align: center; width:100%;">长按保存</view>
 </view>
