@@ -89,7 +89,7 @@ Page({
   alarmSubmit: function (e) {
     var alarmData = e.detail.value;
     alarmData.position = alarmData.position.replace(/\s+/g, '')
-    if (alarmData.question == "") {
+    if (alarmData.title == "") {
       wx.showToast({
         title: '未填写描述问题',
         icon: 'none'

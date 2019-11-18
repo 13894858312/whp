@@ -14,6 +14,7 @@ Page({
     firstaidMeasureHidden: true,
     leakTreatmentHidden: true,
     disposalHidden: true,
+    codeUrl: ''
   },
 
   /**
@@ -38,7 +39,8 @@ Page({
         }
         else {
           that.setData({
-            detail: res.data.data
+            detail: res.data.data,
+            codeUrl: 'http://120.55.54.247:8090' + res.data.data.uri
           });
           //用于存储历史记录
           var now = {
@@ -197,6 +199,36 @@ Page({
     url = url + param
     wx.navigateTo({
       url: url
+    })
+  },
+
+  saveQrCode: function(e) {
+    var that = this;
+    wx.showModal({
+      title: '保存二维码？',
+      success: function () {
+        wx.downloadFile({
+          url: that.data.codeUrl,
+          success: function (res) {
+            var imageFilePath = res.tempFilePath;
+            if (imageFilePath != undefined) {
+              wx.saveImageToPhotosAlbum({
+                filePath: imageFilePath,
+                success: function (data) {
+                  wx.showToast({
+                    title: "保存成功",
+                  })
+                }, fail: function (res) {
+                  wx.showToast({
+                    title: "保存失败",
+                    icon: 'none'
+                  })
+                }
+              })
+            }
+          },
+        })
+      }
     })
   }
 

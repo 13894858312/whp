@@ -10,7 +10,7 @@
   </view>
   <view class="infoItem">
     <view class="itemName">描述问题：</view>
-    <input placeholder="请输入内容" name="question"></input>
+    <input placeholder="请输入内容" name="title"></input>
   </view>
   <view class="infoItem">
     <view class="itemName">位置信息：</view>

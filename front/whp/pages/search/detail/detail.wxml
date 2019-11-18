@@ -15,6 +15,10 @@
       <view class="lineInfo">CAS号：{{detail.cas}}</view>
       <view class="lineInfo">分子式：{{detail.formula}}</view>
       <view class="lineInfo">分子量：{{detail.weight}}</view>
+      <view class="lineInfo" style="display: inline-flex; width: 100%">
+        <view style="display: flex; align-items: top;">二维码：</view>
+        <image src="{{codeUrl}}" id="code" mode="aspectFit" bindlongtap="saveQrCode"></image>
+      </view>
     </view>
   </view>
   <view class="chemicalItem">

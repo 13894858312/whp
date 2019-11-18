@@ -41,12 +41,20 @@
   float: right;
 }
 
+.left{
+  display: inline;
+}
+
 .itemInfo{
   margin-top: 5%;
 }
 
 .lineInfo{
   margin-bottom: 2%;
+}
+
+#code{
+  width: 30%;
 }
 
 #navigator{
