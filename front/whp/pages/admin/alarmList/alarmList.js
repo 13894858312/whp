@@ -46,7 +46,7 @@ Page({
     })
     console.log("当前时间戳为：" + that.data.now);
     wx.request({
-      url: 'http://120.55.54.247:8090/alarm/getList',
+      url: 'https://chem.ufeng.top/whp/alarm/getList',
       method: 'get',
       success: function (res) {
         if (res.data.code != 0) {

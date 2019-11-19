@@ -119,7 +119,7 @@ Page({
       circularData.chemicalId = this.data.chemicalId
       circularData.state = circularData.state + 1
       wx.request({
-        url: 'http://120.55.54.247:8090/transfer/add',
+        url: 'https://chem.ufeng.top/whp/transfer/add',
         method: 'post',
         header: {
           // 'content-type': 'application/x-www-form-urlencoded'

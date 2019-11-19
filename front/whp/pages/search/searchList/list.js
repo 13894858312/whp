@@ -15,7 +15,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://120.55.54.247:8090/chemical/getChemicals',
+      url: 'https://chem.ufeng.top/whp/chemical/getChemicals',
       data: {cas: options.cas, name: options.name},
       method: 'post',
       success: function(res){

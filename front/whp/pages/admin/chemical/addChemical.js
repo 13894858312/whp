@@ -40,7 +40,7 @@ Page({
     }
     else {
       wx.request({
-        url: 'http://120.55.54.247:8090/chemical/addChemical',
+        url: 'https://chem.ufeng.top/whp/chemical/addChemical',
         method: 'post',
         header: {
           'content-type': 'application/json'

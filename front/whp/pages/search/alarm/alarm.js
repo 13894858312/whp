@@ -104,7 +104,7 @@ Page({
     else {
       alarmData.chemicalId = this.data.chemicalId
       wx.request({
-        url: 'http://120.55.54.247:8090/alarm/add',
+        url: 'https://chem.ufeng.top/whp/alarm/add',
         method: 'post',
         header: {
           // 'content-type': 'application/x-www-form-urlencoded'

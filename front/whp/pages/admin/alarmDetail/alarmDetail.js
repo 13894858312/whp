@@ -26,7 +26,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'http://120.55.54.247:8090/alarm/getDetail',
+      url: 'https://chem.ufeng.top/whp/alarm/getDetail',
       data: { alarmId: options.alarmId },
       success: function (res) {
         if (res.data.code != 0) {

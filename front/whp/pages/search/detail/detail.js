@@ -24,7 +24,7 @@ Page({
     //by wx 加载detail数据
     var that = this;
     wx.request({
-      url: 'http://120.55.54.247:8090/chemical/getDetail',
+      url: 'https://chem.ufeng.top/whp/chemical/getDetail',
       data: {chemicalId : options.chemicalId, cas: options.cas},
       method: 'post',
       header: {
@@ -40,7 +40,7 @@ Page({
         else {
           that.setData({
             detail: res.data.data,
-            codeUrl: 'http://120.55.54.247:8090' + res.data.data.uri
+            codeUrl: 'https://chem.ufeng.top/whp/' + res.data.data.uri
           });
           //用于存储历史记录
           var now = {
