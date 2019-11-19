@@ -40,7 +40,7 @@ Page({
         else {
           that.setData({
             detail: res.data.data,
-            codeUrl: 'https://chem.ufeng.top/whp/' + res.data.data.uri
+            codeUrl: 'https://chem.ufeng.top' + res.data.data.uri
           });
           //用于存储历史记录
           var now = {
