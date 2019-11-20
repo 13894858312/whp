@@ -18,7 +18,7 @@
             <view wx:if="{{alarmList.length > 0}}">
               <view class="weui-panel__bd" wx:for="{{alarmList}}" wx:key="{{item.id}}">
                 <view class="weui-media-box weui-media-box_text" bindtap="alarmDetail" data-id="{{item.id}}">
-                    <view class="weui-media-box__title weui-media-box__title_in-text">{{item.chemicalId}}</view>
+                    <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
                     <view class="weui-media-box__desc">{{m1.format(item.createTime)}}</view>
                     <view class="weui-media-box__info">
                       <view class="weui-media-box__info__meta" wx:if="{{(now - item.createTime/1000) < 3600}}">{{(now - item.createTime/1000)/60 | Int}}分钟前</view>
