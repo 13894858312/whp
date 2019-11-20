@@ -45,7 +45,7 @@ Page({
             console.log(res.data)
           }else{
             wx.showToast({
-              title: res.data.message,
+              title: '密码错误',
               icon: 'none',
               duration: 1500
             })
