@@ -24,7 +24,7 @@
                       <view class="weui-media-box__info__meta" wx:if="{{(now - item.createTime/1000) < 3600}}">{{(now - item.createTime/1000)/60 | Int}}分钟前</view>
                       <view class="weui-media-box__info__meta" wx:if="{{3600 <= (now - item.createTime/1000) && (now - item.createTime/1000) < 86400}}">{{(now - item.createTime/1000)/3600 | Int}}小时前</view>
                       <view class="weui-media-box__info__meta" wx:if="{{86400 <= (now - item.createTime/1000) && (now-item.createTime/1000) < 2592000}}">{{(now - item.createTime/1000)/86400 | Int}}天前</view>
-                      <view class="weui-media-box__info__meta" wx:if="{{2592000 <= (now - item.createTime/1000)}}">{{(now - item.createTime/1000)/86400 | Int}}月前</view>
+                      <view class="weui-media-box__info__meta" wx:if="{{2592000 <= (now - item.createTime/1000)}}">{{(now - item.createTime/1000)/2592000 | Int}}月前</view>
                     </view>
                 </view>
               </view>
