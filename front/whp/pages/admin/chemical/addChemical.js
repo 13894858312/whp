@@ -49,7 +49,7 @@ Page({
         success: function (res) {
           if (res.data.code != 0) {
             wx.showToast({
-              title: '提交失败',
+              title: '提交失败，请检查是否已有该化学品',
               icon: 'none'
             })
           } else {
