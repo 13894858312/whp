@@ -13,6 +13,10 @@
     <input placeholder="请输入内容" name="title"></input>
   </view>
   <view class="infoItem">
+    <view class="itemName">报警人：</view>
+    <input placeholder="请输入名字" name="username"></input>
+  </view>
+  <view class="infoItem">
     <view class="itemName">位置信息：</view>
     <input placeholder="坐标" style="width: 45%" name="position" value="{{position.longitude}}, {{position.latitude}}"></input>
     <button id="mapButton" bindtap="locate">地图</button>

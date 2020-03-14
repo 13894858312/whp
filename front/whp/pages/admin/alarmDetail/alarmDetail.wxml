@@ -6,11 +6,15 @@
 <view id="infoView">
   <view class="infoItem">
     <view class="itemName">化学品名称：</view>
-    <view>{{alarmDetail.chemicalId}}</view>
+    <view>{{alarmDetail.chemicalName}}</view>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">报警人：</view>
+    <view>{{alarmDetail.username}}</view>
   </view>
   <view class="infoItem">
     <view class="itemName">描述问题：</view>
-    <view>{{alarmDetail.remarks}}</view>
+    <view>{{alarmDetail.title}}</view>
   </view>
   <view class="infoItem">
     <view class="itemName">位置信息：</view>

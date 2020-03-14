@@ -17,9 +17,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
+    var that = this;
+    that.setData({
       chemicalId: options.chemicalId,
-      chemicalName: options.chemicalName
+      chemicalName: options.chemicalName,
     })
   },
 
@@ -92,6 +93,12 @@ Page({
     if (alarmData.title == "") {
       wx.showToast({
         title: '未填写描述问题',
+        icon: 'none'
+      })
+    }
+    else if (alarmData.username == "") {
+      wx.showToast({
+        title: '未填写名字',
         icon: 'none'
       })
     }
