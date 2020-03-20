@@ -23,6 +23,12 @@ public class AlarmEntity {
 
     private String title;
 
+    private Integer type;
+
+    private String contact;
+
+    private String username;
+
     private String remarks;//备注信息
 
     private String position;

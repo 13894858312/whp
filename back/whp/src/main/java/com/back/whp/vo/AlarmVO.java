@@ -21,4 +21,13 @@ public class AlarmVO {
 
     @ApiModelProperty("位置信息")
     private String position;
+
+    @ApiModelProperty("类型")
+    private Integer type;
+
+    @ApiModelProperty("联系方式")
+    private String contact;
+
+    @ApiModelProperty("用户名")
+    private String username;
 }

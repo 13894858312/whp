@@ -6,11 +6,11 @@ import com.back.whp.service.AlarmService;
 import com.back.whp.vo.AlarmHandleVO;
 import com.back.whp.vo.AlarmVO;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @Api(value = "报警模块", description = "报警相关接口")
 @RestController
@@ -21,13 +21,13 @@ public class AlarmController {
 
     @ApiOperation(value = "新增报警", response = AlarmEntity.class)
     @PostMapping("/add")
-    public SimpleResponse add(@RequestBody AlarmVO alarmVO){
+    public SimpleResponse add(@RequestBody AlarmVO alarmVO) {
         return SimpleResponse.ok(alarmService.add(alarmVO));
     }
 
     @ApiOperation(value = "获取报警详情", response = AlarmEntity.class)
     @GetMapping("/getDetail")
-    public SimpleResponse getDetail(@RequestParam Integer alarmId){
+    public SimpleResponse getDetail(@RequestParam Integer alarmId) {
         return SimpleResponse.ok(alarmService.getDetail(alarmId));
     }
 
@@ -45,13 +45,19 @@ public class AlarmController {
 
     @ApiOperation(value = "获取所有报警列表", response = AlarmEntity.class)
     @GetMapping("/getList")
-    public SimpleResponse getList(){
+    public SimpleResponse getList() {
         return SimpleResponse.ok(alarmService.getList());
     }
 
     @ApiOperation(value = "管理员处理报警", response = AlarmEntity.class, notes = "signature在登录时获得")
     @PostMapping("/handle")
-    public SimpleResponse handle(@RequestParam String signature, @RequestBody AlarmHandleVO alarmHandleVO){
+    public SimpleResponse handle(@RequestParam String signature, @RequestBody AlarmHandleVO alarmHandleVO) {
         return SimpleResponse.ok(alarmService.handle(signature, alarmHandleVO));
+    }
+
+    @ApiOperation(value = "获取所有报警类型", response = Map.class, notes = "Map<String, Integer>")
+    @GetMapping("/getTypes")
+    public SimpleResponse getTypes() {
+        return SimpleResponse.ok(alarmService.getTypes());
     }
 }

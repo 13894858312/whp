@@ -2,6 +2,7 @@ package com.back.whp.service.impl;
 
 import com.back.whp.config.TokenManager;
 import com.back.whp.constants.AlarmState;
+import com.back.whp.constants.AlarmType;
 import com.back.whp.dao.AlarmRepository;
 import com.back.whp.dao.ManagerRepository;
 import com.back.whp.model.AlarmEntity;
@@ -105,5 +106,10 @@ public class AlarmServiceImpl implements AlarmService {
         }
 
         return res;
+    }
+
+    @Override
+    public Map<String, Integer> getTypes() {
+        return AlarmType.alarmTypeS2I;
     }
 }
