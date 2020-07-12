@@ -36,14 +36,8 @@
   line-height: 80rpx;
 }
 
-#typePicker{
-  width: 20%;
-  padding-left: 5rpx;
-}
-
 #searchInput{
-  width: 55%;
-  border-left: 2rpx solid #333333;
+  width: 75%;
   padding-left: 10rpx; 
 }
 

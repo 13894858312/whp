@@ -7,7 +7,6 @@ Page({
   data: {
     //用于清空表单
     nothing: '',
-    typeList:['名称','CAS'],
     picked:0,
     historyList:undefined
   },
@@ -26,10 +25,13 @@ Page({
     }
   },
 
-  bindPickerChange: function (e){
-    this.setData({
-      picked: e.detail.value
-    })
+  isCas: function(val){
+    var reg = /^([0-9]+)((-)?([0-9]*))*$/;
+    if (reg.test(val)) {
+      return 1;
+    } else {
+      return 0;
+    }
   },
 
   doSearch: function(e){
@@ -42,7 +44,7 @@ Page({
       });
       return;
     }
-    var picked = this.data.picked;
+    var picked = this.isCas(input)
     var param = '';
     if(picked == 0){
       param = '?name=' + input;
