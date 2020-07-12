@@ -11,78 +11,232 @@
     <view class="itemInfo" hidden="{{basicInfoHidden}}">
       <view class="lineInfo">中文别名：{{detail.cnAlia}}</view>
       <view class="lineInfo">英文名称：{{detail.enName}}</view>
-      <view class="lineInfo">英文别名：{{detail.enAlia}}</view>
       <view class="lineInfo">CAS号：{{detail.cas}}</view>
       <view class="lineInfo">分子式：{{detail.formula}}</view>
-      <view class="lineInfo">分子量：{{detail.weight}}</view>
       <view class="lineInfo" style="display: inline-flex; width: 100%">
         <view style="display: flex; align-items: top;">二维码：</view>
         <image src="{{codeUrl}}" id="code" mode="aspectFit" bindlongtap="saveQrCode"></image>
       </view>
     </view>
   </view>
-  <view class="chemicalItem">
+  <view class="chemicalItem" >
+    <view class="itemHead" bindtap="emergencyTap">
+      <view class="itemName">紧急情况描述</view>
+      <view class="iconfont icon-arrow-down right"></view>
+    </view>
+    <view class="itemInfo" hidden="{{emergencyHidden}}">{{detail.emergency}}</view>
+  </view>
+  <view class="chemicalItem">  
     <view class="itemHead" bindtap="propertyTap">
       <view class="itemName">理化特性</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{propertyHidden}}">{{detail.properties}}</view>
-  </view>
-  <view class="chemicalItem">
-    <view class="itemHead" bindtap="stabilityAndReactivityTap">
-      <view class="itemName">稳定性和反应性</view>
-      <view class="iconfont icon-arrow-down right"></view>
+    <view class="itemInfo" hidden="{{propertyHidden}}">
+      <view class="lineInfo">外观与性状：{{detail.look}}</view>
+      <view class="lineInfo">ph值：{{detail.ph}}</view>
+      <view class="lineInfo">气味：{{detail.smell}}</view>
+      <view class="lineInfo">沸点、初沸点和沸程(℃)：{{detail.fei}}</view>
+      <view class="lineInfo">熔点/凝固点(℃)：{{detail.rong}}</view>
+      <view class="lineInfo">相对蒸气密度(空气=1)：{{detail.sky}}</view>
+      <view class="lineInfo">饱和蒸汽压(kPa)：{{detail.kpa}}</view>
+      <view class="lineInfo">相对密度(水=1)：{{detail.water}}</view>
+      <view class="lineInfo">黏度(mm2/s)：{{detail.mm2}}</view>
+      <view class="lineInfo">闪点(℃)：{{detail.shan}}</view>
+      <view class="lineInfo">n-辛醇/水分配系数：{{detail.xinchun}}</view>
+      <view class="lineInfo">分解温度(℃)：{{detail.fenjie}}</view>
+      <view class="lineInfo">引燃温度(℃)：{{detail.yinran}}</view>
+      <view class="lineInfo">爆炸上限/下限[％(V/V)]：{{detail.baozha}}</view>
+      <view class="lineInfo">溶解性(mg/L)：{{detail.rongjie}}</view>
+      <view class="lineInfo">易燃性：{{detail.yiran}}</view>
+      <view class="lineInfo">稳定性：{{detail.stability}}</view>
+      <view class="lineInfo">危险反应：{{detail.dangerAct}}</view>
+      <view class="lineInfo">应避免的条件：{{detail.avoid}}</view>
+      <view class="lineInfo">不相容的物质：{{detail.noRong}}</view>
+      <view class="lineInfo">分解产物：{{detail.apart}}</view>
     </view>
-    <view class="itemInfo" hidden="{{stabilityAndReactivityHidden}}">{{detail.stability}}</view>
-  </view>
-  <view class="chemicalItem">
-    <view class="itemHead" bindtap="dangerTap">
-      <view class="itemName">危险性概述</view>
-      <view class="iconfont icon-arrow-down right"></view>
-    </view>
-    <view class="itemInfo" hidden="{{dangerHidden}}">{{detail.overview}}</view>
   </view>
   <view class="chemicalItem">
     <view class="itemHead" bindtap="GHSTap">
-      <view class="itemName">GHS危害性分类</view>
+      <view class="itemName">GHS危险性类别</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{GHSHidden}}">{{detail.dangerClass}}</view>
+    <view class="itemInfo" hidden="{{GHSHidden}}">
+      <view class="lineInfo">{{detail.other}}</view>
+      <view class="lineInfo">{{detail.dangerClass}}</view>
+    </view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead" bindtap="handleAndStorageTap">
-      <view class="itemName">操作处置与储存</view>
+    <view class="itemHead" bindtap="dangerTap">
+      <view class="itemName">危险信息</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{handleAndStorageHidden}}">{{detail.word}}</view>
+    <view class="itemInfo" hidden="{{dangerHidden}}">{{detail.danger}}</view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead" bindtap="touchControlTap">
-      <view class="itemName">接触控制/个体防护</view>
+    <view class="itemHead" bindtap="preventTap">
+      <view class="itemName">预防措施</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{touchControlHidden}}">{{detail.touchControl}}</view>
+    <view class="itemInfo" hidden="{{preventHidden}}">{{detail.prevent}}</view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead" bindtap="firstaidMeasureTap">
-      <view class="itemName">急救措施</view>
+    <view class="itemHead" bindtap="responseTap">
+      <view class="itemName">事故响应</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{firstaidMeasureHidden}}">{{detail.firstAid}}</view>
+    <view class="itemInfo" hidden="{{responseHidden}}">{{detail.response}}</view>
   </view>
   <view class="chemicalItem">
-    <view class="itemHead" bindtap="leakTreatmentTap">
-      <view class="itemName">泄露应急处理</view>
+    <view class="itemHead" bindtap="storeTap">
+      <view class="itemName">安全储存</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{leakTreatmentHidden}}">{{detail.leakage}}</view>
+    <view class="itemInfo" hidden="{{storeHidden}}">{{detail.store}}</view>
   </view>
   <view class="chemicalItem">
     <view class="itemHead" bindtap="disposalTap">
       <view class="itemName">废弃处置</view>
       <view class="iconfont icon-arrow-down right"></view>
     </view>
-    <view class="itemInfo" hidden="{{disposalHidden}}">{{detail.disposal}}</view>
+    <view class="itemInfo" hidden="{{disposalHidden}}">
+      <view class="lineInfo">{{detail.disposalOverview}}</view>
+      <view class="lineInfo">产品：{{detail.disposal}}</view>
+      <view class="lineInfo">不洁的包装：{{detail.disposal}}</view>
+      <view class="lineInfo">废弃注意事项：{{detail.disposalAttention}}</view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead" bindtap="physicalChemicalTap">
+      <view class="itemName">物理和化学危险</view>
+      <view class="iconfont icon-arrow-down right"></view>
+    </view>
+    <view class="itemInfo" hidden="{{physicalChemicalHidden}}">{{detail.physicalChemical}}</view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead" bindtap="healthTap">
+      <view class="itemName">健康危害</view>
+      <view class="iconfont icon-arrow-down right"></view>
+    </view>
+    <view class="itemInfo" hidden="{{healthHidden}}">{{detail.health}}</view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead" bindtap="environmentTap">
+      <view class="itemName">环境危害</view>
+      <view class="iconfont icon-arrow-down right"></view>
+    </view>
+    <view class="itemInfo" hidden="{{environmentHidden}}">{{detail.environment}}</view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead" bindtap="firstaidMeasureTap">
+      <view class="itemName">急救措施</view>
+      <view class="iconfont icon-arrow-down right"></view>
+    </view>
+    <view class="itemInfo" hidden="{{firstaidMeasureHidden}}">
+      <view class="lineInfo">● 一般性建议：</view>
+      <view class="lineInfo">{{detail.firstAid}}</view>
+      <view class="lineInfo">● 眼睛接触：</view>
+      <view class="lineInfo">{{detail.eyeTouch}}</view>
+      <view class="lineInfo">● 皮肤接触：</view>
+      <view class="lineInfo">{{detail.skinTouch}}</view>
+      <view class="lineInfo">● 食入：</view>
+      <view class="lineInfo">{{detail.eat}}</view>
+      <view class="lineInfo">● 吸入：</view>
+      <view class="lineInfo">{{detail.breath}}</view>
+      <view class="lineInfo">● 对保护施救者的忠告：</view>
+      <view class="lineInfo">{{detail.advice}}</view>
+      <view class="lineInfo">● 对医生的特别提示：</view>
+      <view class="lineInfo">{{detail.doctor}}</view>
+      <view class="lineInfo">● 危险特性：</view>
+      <view class="lineInfo">{{detail.dangerProperties}}</view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead" bindtap="leakTreatmentTap">
+      <view class="itemName">泄漏应急处理</view>
+      <view class="iconfont icon-arrow-down right"></view>
+    </view>
+    <view class="itemInfo" hidden="{{leakTreatmentHidden}}">
+      <view class="lineInfo">● 合适的灭火介质：</view>
+      <view class="lineInfo">{{detail.fireStuff}}</view>
+      <view class="lineInfo">● 不合适的灭火介质：</view>
+      <view class="lineInfo">{{detail.notFireStuff}}</view>
+      <view class="lineInfo">● 灭火注意事项及措施：</view>
+      <view class="lineInfo">{{detail.fireStep}}</view>
+      <view class="lineInfo">● 作业人员防护措施、装备和应急处置程序：</view>
+      <view class="lineInfo">{{detail.protectiveStep}}</view>
+      <view class="lineInfo">● 环境保护措施：</view>
+      <view class="lineInfo">{{detail.environmentStep}}</view>
+      <view class="lineInfo">● 泄漏化学品的收容、清除方法及处置材料：</view>
+      <view class="lineInfo">{{detail.leakMethod}}</view>
+      <view class="lineInfo">● 操作注意事项：</view>
+      <view class="lineInfo">{{detail.stepAttention}}</view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead" bindtap="handleAndStorageTap">
+      <view class="itemName">操作处置与储存</view>
+      <view class="iconfont icon-arrow-down right"></view>
+    </view>
+    <view class="itemInfo" hidden="{{handleAndStorageHidden}}">
+      <view class="lineInfo">● 操作注意事项：</view>
+      <view class="lineInfo">{{detail.stepAttention2}}</view>
+      <view class="lineInfo">● 储存注意事项：</view>
+      <view class="lineInfo">{{detail.storeAttention}}</view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead" bindtap="engControlTap">
+      <view class="itemName">工程控制</view>
+      <view class="iconfont icon-arrow-down right"></view>
+    </view>
+    <view class="itemInfo" hidden="{{engControlHidden}}">{{detail.engControl}}</view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead" bindtap="touchControlTap">
+      <view class="itemName">个体防护</view>
+      <view class="iconfont icon-arrow-down right"></view>
+    </view>
+    <view class="itemInfo" hidden="{{touchControlHidden}}">
+      <view class="lineInfo">● 眼睛防护：</view>
+      <view class="lineInfo">{{detail.eyeProtect}}</view>
+      <view class="lineInfo">● 手部防护：</view>
+      <view class="lineInfo">{{detail.handProtect}}</view>
+      <view class="lineInfo">● 呼吸系统防护：</view>
+      <view class="lineInfo">{{detail.breathProtect}}</view>
+      <view class="lineInfo">● 皮肤和身体防护：</view>
+      <view class="lineInfo">{{detail.skinProtect}}</view>
+    </view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead" bindtap="transAttentionTap">
+      <view class="itemName">运输注意</view>
+      <view class="iconfont icon-arrow-down right"></view>
+    </view>
+    <view class="itemInfo" hidden="{{transAttentionHidden}}">{{detail.transAttention}}</view>
+  </view>
+  <view class="chemicalItem">
+    <view class="itemHead" bindtap="bookTap">
+      <view class="itemName">列入名录情况</view>
+      <view class="iconfont icon-arrow-down right"></view>
+    </view>
+    <view class="itemInfo" hidden="{{bookHidden}}">
+      <view class="lineInfo" wx:if="{{detail.book1}}">1：列入</view>
+      <view class="lineInfo" wx:else>1：未列入</view>
+      <view class="lineInfo" wx:if="{{detail.book2}}">2：列入</view>
+      <view class="lineInfo" wx:else>2：未列入</view>
+      <view class="lineInfo" wx:if="{{detail.book3}}">3：列入</view>
+      <view class="lineInfo" wx:else>3：未列入</view>
+      <view class="lineInfo" wx:if="{{detail.book4}}">4：列入</view>
+      <view class="lineInfo" wx:else>4：未列入</view>
+      <view class="lineInfo" wx:if="{{detail.book5}}">5：列入</view>
+      <view class="lineInfo" wx:else>5：未列入</view>
+      <view class="lineInfo" wx:if="{{detail.book6}}">6：列入</view>
+      <view class="lineInfo" wx:else>6：未列入</view>
+      <view class="lineInfo" wx:if="{{detail.book7}}">7：列入</view>
+      <view class="lineInfo" wx:else>7：未列入</view>
+      <view class="lineInfo" wx:if="{{detail.book8}}">8：列入</view>
+      <view class="lineInfo" wx:else>8：未列入</view>
+    </view>
   </view>
 </view>
 <view id="navigator">
