@@ -5,15 +5,24 @@ Page({
   data: {
     detail:undefined,
     basicInfoHidden: true,
+    emergencyHidden: true,
     propertyHidden: true,
-    stabilityAndReactivityHidden: true,
-    dangerHidden: true,
     GHSHidden: true,
-    handleAndStorageHidden: true,
-    touchControlHidden: true,
+    dangerHidden: true,
+    preventHidden: true,
+    responseHidden: true,
+    storeHidden: true,
+    disposalHidden: true,
+    physicalChemicalHidden: true,
+    healthHidden: true,
+    environmentHidden:true,
     firstaidMeasureHidden: true,
     leakTreatmentHidden: true,
-    disposalHidden: true,
+    handleAndStorageHidden: true,
+    engControlHidden: true,
+    touchControlHidden: true,
+    transAttentionHidden: true,
+    bookHidden: true,
     codeUrl: ''
   },
 
@@ -130,21 +139,15 @@ Page({
     })
   },
 
+  emergencyTap: function (e) {
+    this.setData({
+      emergencyHidden: !this.data.emergencyHidden
+    })
+  },
+
   propertyTap: function (e) {
     this.setData({
       propertyHidden: !this.data.propertyHidden
-    })
-  },
-
-  stabilityAndReactivityTap: function (e) {
-    this.setData({
-      stabilityAndReactivityHidden: !this.data.stabilityAndReactivityHidden
-    })
-  },
-
-  dangerTap: function (e) {
-    this.setData({
-      dangerHidden: !this.data.dangerHidden
     })
   },
 
@@ -154,15 +157,51 @@ Page({
     })
   },
 
-  handleAndStorageTap: function (e) {
+  dangerTap: function (e) {
     this.setData({
-      handleAndStorageHidden: !this.data.handleAndStorageHidden
+      dangerHidden: !this.data.dangerHidden
     })
   },
 
-  touchControlTap: function (e) {
+  preventTap: function (e) {
     this.setData({
-      touchControlHidden: !this.data.touchControlHidden
+      preventHidden: !this.data.preventHidden
+    })
+  },
+
+  responseTap: function (e) {
+    this.setData({
+      responseHidden: !this.data.responseHidden
+    })
+  },
+
+  storeTap: function (e) {
+    this.setData({
+      storeHidden: !this.data.storeHidden
+    })
+  },
+
+  disposalTap: function (e) {
+    this.setData({
+      disposalHidden: !this.data.disposalHidden
+    })
+  },
+  
+  physicalChemicalTap: function (e) {
+    this.setData({
+      physicalChemicalHidden: !this.data.physicalChemicalHidden
+    })
+  },
+
+  healthTap: function (e) {
+    this.setData({
+      healthHidden: !this.data.healthHidden
+    })
+  },
+
+  environmentTap: function (e) {
+    this.setData({
+      environmentHidden: !this.data.environmentHidden
     })
   },
 
@@ -178,9 +217,33 @@ Page({
     })
   },
 
-  disposalTap: function (e) {
+  handleAndStorageTap: function (e) {
     this.setData({
-      disposalHidden: !this.data.disposalHidden
+      handleAndStorageHidden: !this.data.handleAndStorageHidden
+    })
+  },
+
+  engControlTap: function (e) {
+    this.setData({
+      engControlHidden: !this.data.engControlHidden
+    })
+  },
+
+  touchControlTap: function (e) {
+    this.setData({
+      touchControlHidden: !this.data.touchControlHidden
+    })
+  },
+
+  transAttentionTap: function (e) {
+    this.setData({
+      transAttentionHidden: !this.data.transAttentionHidden
+    })
+  },
+
+  bookTap: function (e) {
+    this.setData({
+      bookHidden: !this.data.bookHidden
     })
   },
 
