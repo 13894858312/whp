@@ -21,6 +21,10 @@
     <input placeholder="坐标" style="width: 45%" name="position" value="{{position.longitude}}, {{position.latitude}}"></input>
     <button id="mapButton" bindtap="locate">地图</button>
   </view>
+    <view class="infoItem">
+    <view class="itemName">具体位置：</view>
+    <input placeholder="具体位置"  name="address" value="{{position.address}}"></input>
+  </view>
   <view class="infoItem">
     <view class="itemName">备注信息：</view>
     <textarea placeholder="请输入内容" style="height: 5em;" name="remarks"></textarea>

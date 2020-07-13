@@ -80,7 +80,8 @@ Page({
         that.setData({
           position: {
             longitude: res.longitude,
-            latitude: res.latitude
+            latitude: res.latitude,
+            address : res.address
           },
         })
       },
@@ -104,7 +105,13 @@ Page({
     }
     else if (alarmData.position == "" || alarmData.position == ",") {
       wx.showToast({
-        title: '未填写位置信息',
+        title: '未填写坐标',
+        icon: 'none'
+      })
+    }
+    else if (alarmData.address == "") {
+      wx.showToast({
+        title: '未填写具体位置',
         icon: 'none'
       })
     }
