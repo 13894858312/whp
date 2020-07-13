@@ -19,7 +19,33 @@ Page({
    */
   onLoad: function (options) {
   },
-
+  deleteAlarm: function (e) {
+    var that = this;
+    var alarmList = that.data.alarmList;
+    var index = e.currentTarget.dataset.index;//获取当前长按图片下标
+    var id = e.currentTarget.dataset.id;
+    console.log(id)
+    wx.showModal({
+     title: '提示',
+     content: '确定要删除此报警吗？',
+     success: function (res) {
+      if (res.confirm) {
+       console.log('点击确定了');
+       alarmList.splice(index, 1);
+       /**
+        * 删除订单
+        * 
+        *  */ 
+      } else if (res.cancel) {
+        console.log('点击取消了');
+        return false;    
+       }
+      that.setData({
+        alarmList
+      });
+     }
+    })
+   },
   alarmDetail: function (e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({

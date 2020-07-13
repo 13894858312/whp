@@ -17,7 +17,7 @@
             <view class="weui-panel__hd">报警列表</view>
             <view wx:if="{{alarmList.length > 0}}">
               <view class="weui-panel__bd" wx:for="{{alarmList}}" wx:key="{{item.id}}">
-                <view class="weui-media-box weui-media-box_text" bindtap="alarmDetail" data-id="{{item.id}}">
+                <view class="weui-media-box weui-media-box_text" bindtap="alarmDetail" bindlongpress="deleteAlarm" data-id="{{item.id}}" data-index="{{index}}">
                     <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
                     <view class="weui-media-box__desc">{{m1.format(item.createTime)}}</view>
                     <view class="weui-media-box__info">
