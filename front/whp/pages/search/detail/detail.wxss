@@ -1,7 +1,7 @@
 /* pages/search/detail/detail.wxss */
 #detailHead{
   width: 90%;
-  margin-bottom: 50rpx;
+  margin-bottom: 20rpx;
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -20,20 +20,27 @@
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
-  padding-top: 30rpx;
-  padding-bottom: 30rpx;
-  padding-left: 10rpx;
-  padding-right: 10rpx;
-  border-top: 1rpx solid gainsboro;
   font-size: 32rpx;
 }
 
 .itemHead{
-  width: 100%;
+  width: 97%;
+  border-top: 1rpx solid gray;
+  border-left: 5rpx solid greenyellow;
+  padding-left: 2%;
+  padding-top: 5rpx;
+  background-color: gainsboro;
 }
 
 .itemName{
   display: inline;
+}
+
+.itemInfo{
+  width: 97%;
+  padding-left: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .right{
@@ -43,10 +50,6 @@
 
 .left{
   display: inline;
-}
-
-.itemInfo{
-  margin-top: 5%;
 }
 
 .lineInfo{
