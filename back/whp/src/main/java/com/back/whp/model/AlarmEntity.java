@@ -5,7 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 
 @Entity
@@ -31,7 +34,8 @@ public class AlarmEntity {
 
     private String remarks;//备注信息
 
-    private String position;
+    private String position;//经纬度
+    private String address;//具体位置
 
     /**
      * @see com.back.whp.constants.AlarmState

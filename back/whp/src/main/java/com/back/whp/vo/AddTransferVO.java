@@ -19,10 +19,12 @@ public class AddTransferVO {
 
     /**
      * 状态
+     *
      * @see TransferState
      */
     private Integer state;
 
     private String remarks;//备注信息
-    private String position;//位置信息
+    private String position;//经纬度
+    private String address;//具体位置
 }

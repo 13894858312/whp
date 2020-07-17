@@ -90,12 +90,12 @@ public class AlarmServiceImpl implements AlarmService {
         return getByAlarmEntity(alarmRepository.saveAndFlush(alarmEntity));
     }
 
-    private AlarmInfoVO getByAlarmEntity(AlarmEntity alarmEntity){
+    private AlarmInfoVO getByAlarmEntity(AlarmEntity alarmEntity) {
         BaseInfoEntity baseInfoEntity = baseInfoService.getChemical(alarmEntity.getChemicalId(), null);
         return new AlarmInfoVO(alarmEntity, baseInfoEntity);
     }
 
-    private List<AlarmInfoVO> getByAlarms(List<AlarmEntity> alarmEntities){
+    private List<AlarmInfoVO> getByAlarms(List<AlarmEntity> alarmEntities) {
         List<Integer> chemicalIds = alarmEntities.stream().map(AlarmEntity::getChemicalId).collect(Collectors.toList());
         List<BaseInfoEntity> baseInfoEntities = baseInfoService.getChemicals(chemicalIds);
         Map<Integer, BaseInfoEntity> chemicalIdToBaseInfo = baseInfoEntities.stream().collect(Collectors.toMap(BaseInfoEntity::getId, b -> b));
@@ -111,5 +111,16 @@ public class AlarmServiceImpl implements AlarmService {
     @Override
     public Map<String, Integer> getTypes() {
         return AlarmType.alarmTypeS2I;
+    }
+
+    @Override
+    public Boolean del(Integer alarmId) {
+        try {
+            alarmRepository.delete(alarmId);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+
     }
 }

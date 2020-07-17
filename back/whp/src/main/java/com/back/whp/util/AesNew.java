@@ -63,7 +63,7 @@ public class AesNew {
     /**
      * 加密方法
      *
-     * @param content  要加密的字符串
+     * @param content 要加密的字符串
      * @return
      */
     public static String encrypt(String content) {

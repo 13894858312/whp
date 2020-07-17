@@ -1,6 +1,5 @@
 package com.back.whp.service;
 
-import com.back.whp.model.AlarmEntity;
 import com.back.whp.vo.AlarmHandleVO;
 import com.back.whp.vo.AlarmInfoVO;
 import com.back.whp.vo.AlarmVO;
@@ -22,4 +21,6 @@ public interface AlarmService {
     AlarmInfoVO handle(String signature, AlarmHandleVO alarmHandleVO);
 
     Map<String, Integer> getTypes();
+
+    Boolean del(Integer alarmId);
 }
