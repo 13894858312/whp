@@ -22,6 +22,10 @@
     <button id="mapButton" bindtap="locate">地图</button>
   </view>
   <view class="infoItem">
+    <view class="itemName">具体位置：</view>
+    <view>{{alarmDetail.address}}</view>
+  </view>
+  <view class="infoItem">
     <view class="itemName">备注信息：</view>
     <view>{{alarmDetail.remarks}}</view>
   </view>

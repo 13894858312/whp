@@ -25,7 +25,7 @@ public class TokenManager {
      * 获取令牌
      * 签名格式：（sal`email`clientType）
      *
-     * @param email   邮箱
+     * @param email      邮箱
      * @param clientType 客户端类型
      * @return 令牌
      */

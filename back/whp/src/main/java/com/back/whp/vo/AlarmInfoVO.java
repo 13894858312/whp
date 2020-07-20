@@ -32,7 +32,9 @@ public class AlarmInfoVO {
 
     private String remarks;//备注信息
 
-    private String position;
+    private String position;//经纬度
+
+    private String address;//具体位置
 
     /**
      * @see com.back.whp.constants.AlarmState
@@ -44,7 +46,7 @@ public class AlarmInfoVO {
     private Timestamp createTime;
     private Timestamp modifyTime;
 
-    public AlarmInfoVO(AlarmEntity alarmEntity, BaseInfoEntity baseInfoEntity){
+    public AlarmInfoVO(AlarmEntity alarmEntity, BaseInfoEntity baseInfoEntity) {
         BeanUtils.copyProperties(alarmEntity, this, "type");
         String type = AlarmType.alarmTypeI2S.getOrDefault(alarmEntity.getType(), "未知类型");
         this.setType(type);

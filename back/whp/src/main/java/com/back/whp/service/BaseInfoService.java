@@ -17,6 +17,8 @@ public interface BaseInfoService {
 
     String genCodeByCas(String cas);
 
+    Boolean genAllQrCode();
+
     BaseInfoEntity addChemical(AddChemicalVO addChemicalVO);
 
     HistoryEntity addHistory(String signature, HistoryVO historyVO);

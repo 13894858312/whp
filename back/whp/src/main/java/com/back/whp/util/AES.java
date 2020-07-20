@@ -44,15 +44,15 @@ public class AES {
         return decryptWithViparaAndASEKey(encrypted, CLIENT_VIPARA, CLIENT_ASE_KEY);
     }
 
-    public static String serverEncrypt(String cleartext){
+    public static String serverEncrypt(String cleartext) {
         return encryptWithViparaAndASEKey(cleartext, SERVER_VIPARA, SERVER_ASE_KEY);
     }
 
-    public static String serverDecrypt(String encrypted){
+    public static String serverDecrypt(String encrypted) {
         return decryptWithViparaAndASEKey(encrypted, SERVER_VIPARA, SERVER_ASE_KEY);
     }
 
-    private static String encryptWithViparaAndASEKey(String cleartext, String vipara,String ase_key){
+    private static String encryptWithViparaAndASEKey(String cleartext, String vipara, String ase_key) {
         try {
             IvParameterSpec zeroIv = new IvParameterSpec(vipara.getBytes());
             //两个参数，第一个为私钥字节数组， 第二个为加密方式 AES或者DES
@@ -74,7 +74,7 @@ public class AES {
         }
     }
 
-    private static String decryptWithViparaAndASEKey(String encrypted, String vipara,String ase_key){
+    private static String decryptWithViparaAndASEKey(String encrypted, String vipara, String ase_key) {
         try {
             byte[] byteMi = new BASE64Decoder().decodeBuffer(encrypted);
             IvParameterSpec zeroIv = new IvParameterSpec(vipara.getBytes());

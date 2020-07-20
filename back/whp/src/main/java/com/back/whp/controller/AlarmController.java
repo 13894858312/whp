@@ -60,4 +60,10 @@ public class AlarmController {
     public SimpleResponse getTypes() {
         return SimpleResponse.ok(alarmService.getTypes());
     }
+
+    @ApiOperation(value = "删除报警", response = Boolean.class)
+    @PostMapping("/del")
+    public SimpleResponse del(@RequestParam Integer alarmId) {
+        return SimpleResponse.ok(alarmService.del(alarmId));
+    }
 }

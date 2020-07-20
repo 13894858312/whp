@@ -4,9 +4,9 @@ import java.beans.Transient;
 import java.util.function.Supplier;
 
 public class SimpleResponse<T> {
-    private int code;
     private final T data;
     private final String exception;
+    private int code;
 
     private SimpleResponse() {
         this.code = 0;

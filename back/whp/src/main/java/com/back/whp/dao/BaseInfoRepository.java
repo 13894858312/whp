@@ -12,9 +12,9 @@ public interface BaseInfoRepository extends JpaRepository<BaseInfoEntity, Intege
 
     List<BaseInfoEntity> findByCasLike(String cas);
 
-    @Query("select b from BaseInfoEntity b where (b.cnName like :name) or (b.cnAlia like :name) or (b.enName like :name) or (b.enAlia like :name)")
+    @Query("select b from BaseInfoEntity b where (b.cnName like :name) or (b.cnAlia like :name) or (b.enName like :name)")
     List<BaseInfoEntity> searchByName(@Param("name") String name);
 
-    @Query("select b from BaseInfoEntity b where b.cas like :cas and ((b.cnName like :name) or (b.cnAlia like :name) or (b.enName like :name) or (b.enAlia like :name))")
+    @Query("select b from BaseInfoEntity b where b.cas like :cas and ((b.cnName like :name) or (b.cnAlia like :name) or (b.enName like :name))")
     List<BaseInfoEntity> searchByCasAndName(@Param("cas") String cas, @Param("name") String name);
 }

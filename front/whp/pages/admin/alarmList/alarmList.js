@@ -19,7 +19,50 @@ Page({
    */
   onLoad: function (options) {
   },
-
+  deleteAlarm: function (e) {
+    var that = this;
+    var alarmList = that.data.alarmList;
+    var index = e.currentTarget.dataset.index;//获取当前长按图片下标
+    var alarmId = e.currentTarget.dataset.id;
+    wx.showModal({
+     title: '提示',
+     content: '确定要删除此报警吗？',
+     success: function (res) {
+      if (res.confirm) {
+       console.log('点击确定了');
+       alarmList.splice(index, 1);
+       wx.request({
+        url: 'https://chem.ufeng.top/whp/alarm/del',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: {alarmId: alarmId},
+        success: function (res) {
+          if (res.data.code != 0) {
+            wx.showToast({
+              title: '删除报警失败',
+            })
+          } else {
+            wx.showToast({
+              title: '删除报警成功',
+            })
+          }
+        },
+        fail: function (err) {
+          console.log(err)
+        }
+      })
+      } else if (res.cancel) {
+        console.log('点击取消了');
+        return false;    
+       }
+      that.setData({
+        alarmList
+      });
+     }
+    })
+   },
   alarmDetail: function (e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({

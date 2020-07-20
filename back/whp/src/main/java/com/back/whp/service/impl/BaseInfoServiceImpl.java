@@ -82,6 +82,17 @@ public class BaseInfoServiceImpl implements BaseInfoService {
     }
 
     @Override
+    public Boolean genAllQrCode() {
+        List<BaseInfoEntity> baseInfoEntities = baseInfoRepository.findAll();
+        for (BaseInfoEntity entity : baseInfoEntities) {
+            if (entity.getUri() == null || entity.getUri().length() == 0) {
+                genCodeByCas(entity.getCas());
+            }
+        }
+        return true;
+    }
+
+    @Override
     public BaseInfoEntity addChemical(AddChemicalVO addChemicalVO) {
         BaseInfoEntity baseInfoEntity = new BaseInfoEntity(addChemicalVO);
         return baseInfoRepository.saveAndFlush(baseInfoEntity);
