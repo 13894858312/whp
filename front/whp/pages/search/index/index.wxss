@@ -19,7 +19,7 @@
 
 .historyItem{
   display: flex;
-  height:80rpx;
+  min-height:80rpx;
   line-height: 80rpx;
   font-size: 40rpx;
 }
@@ -52,4 +52,10 @@
   line-height: 80rpx;
   border-radius: 0;
   font-size: 32rpx;
+}
+
+.historyItemText{
+  width: 40%;
+  font-size: 40rpx;
+  margin-left: 10rpx;
 }

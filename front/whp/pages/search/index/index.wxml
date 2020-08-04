@@ -17,8 +17,8 @@
   <view id="historyList" wx:for="{{historyList}}" wx:key="{{item.id}}">
     <view class="historyItem" bindtap="bindHistoryItem" data-id="{{item.id}}">
       <text class="iconfont icon-clock" style="font-size:60rpx;color:#333333;margin-right:10rpx;"></text>
-      <view style="width: 40%">{{item.cas}}</view>
-      <view style="width: 40%">{{item.name}}</view>
+      <view class="historyItemText">{{item.cas}}</view>
+      <view class="historyItemText">{{item.name}}</view>
       <text class="iconfont icon-arrow-right" style="font-size:40rpx;color:#333333;position:absolute;right:40rpx;"></text>
     </view>
   </view>
