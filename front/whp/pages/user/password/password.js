@@ -64,7 +64,85 @@ Page({
 
   },
 
-  modifyPassword: function() {
-    // TODO
+  modifyPassword: function(e) {
+    var that = this;
+    var oldPassword = e.detail.value.oldPassword;
+    var newPassword = e.detail.value.newPassword;
+    var reinput = e.detail.value.reinput;
+    if(oldPassword == '' || newPassword == '' || reinput == ''){
+      wx.showToast({
+        title: '请输入密码',
+        icon: 'none'
+      });
+      return;
+    }
+    if (reinput != newPassword) {
+      wx.showToast({
+        title: '两次输入的密码不相同',
+        icon: 'none'
+      });
+      return;
+    }
+    // 验证旧密码
+    wx.request({
+      url: 'https://chem.ufeng.top/whp/login/login',
+      data: {
+        email : wx.getStorageSync('userEmail'),
+         password: oldPassword
+      },
+      method: 'post',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function(res){
+        if (res.data.code != 0) {
+          wx.showToast({
+            title: '旧密码验证失败，请重试',
+            icon: 'none'
+          })
+        } else {
+          if (res.data.userEntity == null) {
+            wx.showToast({
+              title: '用户名或密码错误',
+              icon: 'none'
+            });
+          } else {
+            wx.request({
+              url: 'https://chem.ufeng.top/whp/user/updatePassword',
+              data: {userEntity: 
+                  {
+                    id: wx.getStorageSync('userId'),
+                    password: newPassword
+                  }                
+              },
+              method: 'post',
+              header: {
+                'content-type': 'application/json',
+                'signature': that.data.signature
+              },
+              success: function(res){
+                if (res.data.code != 0) {
+                  wx.showToast({
+                    title: '修改密码失败，请重试',
+                    icon: 'none'
+                  })
+                } else {
+                  wx.showToast({
+                    title: '修改成功',
+                    icon: 'none'
+                  });
+                  setTimeout(function () {
+                    wx.redirectTo({
+                      url: '/pages/user/userInfo/userInfo'
+                    })
+                  }, 1000);
+                }
+                console.log(res.data)
+              }
+            })
+          }
+        }
+      }
+    })
   }
 })

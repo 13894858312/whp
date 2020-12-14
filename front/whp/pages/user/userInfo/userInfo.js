@@ -5,14 +5,46 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    signature: '',
+    userId: '',
+    userEmail: '',
+    userEntity: undefined
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    that.setData({
+      signature: wx.getStorageSync('signature'),
+      userId: wx.getStorageSync('userId'),
+      userEmail: wx.getStorageSync('userEmail')
+    })
+    if (that.data.signature != '') {
+      wx.request({
+        url: 'https://chem.ufeng.top/whp/user/get',
+        data: {id: that.data.userId},
+        method: 'post',
+        header: {
+          'content-type': 'application/json',
+          'signature': wx.getStorageSync('signature')
+        },
+        success: function(res){
+          if (res.data.code != 0) {
+            wx.showToast({
+              title: '获取数据失败',
+              icon:'none'
+            })
+          }
+          else {
+            that.setData({
+              userEntity: res.data.userEntity
+            });
+          }
+        }
+      });
+    }
   },
 
   /**
@@ -62,5 +94,68 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  // 用户登录
+  login: function(e) {
+    var that = this;
+    var email = e.detail.value.email;
+    var pswd = e.detail.value.password;
+    if(email == '' || pswd == ''){
+      wx.showToast({
+        title: '请输入登录邮箱和密码',
+        icon: 'none'
+      });
+      return;
+    }
+    wx.request({
+      url: 'https://chem.ufeng.top/whp/login/login',
+      data: {email : email, password: pswd},
+      method: 'post',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function(res){
+
+        if (res.data.code != 0) {
+          wx.showToast({
+            title: '登录失败，请重试',
+            icon: 'none'
+          })
+        } else {
+          if (res.data.userEntity == null) {
+            wx.showToast({
+              title: '用户名或密码错误',
+              icon: 'none'
+            });
+          } else {
+            // 缓存signature和id
+            wx.setStorageSync('signature', res.signature);
+            wx.setStorageSync('userId', res.data.userEntity.id);
+            wx.setStorageSync('userEmail', email)
+            // 弹框
+            wx.showToast({
+              title: '欢迎您' + res.data.userEntity.name,
+              icon: 'none'
+            })
+            // 刷新页面
+            setTimeout(function () {
+              that.onShow();
+              that.onLoad();
+            }, 1000)
+          }
+        }
+        console.log(res.data)
+      },
+      fail: function(res){
+        console.log("登录出错，错误信息：" + res);
+      }
+    });
+  },
+
+  bindModifyPassword: function() {
+    wx.redirectTo({
+      url: '/pages/user/password/password'
+    })
   }
 })
