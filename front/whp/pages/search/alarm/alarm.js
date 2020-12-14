@@ -117,18 +117,28 @@ Page({
     }
     else {
       alarmData.chemicalId = this.data.chemicalId
+      var signature=wx.getStorageSync('signature');
       wx.request({
         url: 'https://chem.ufeng.top/whp/alarm/add',
         method: 'post',
         header: {
           // 'content-type': 'application/x-www-form-urlencoded'
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'signature' : signature
         },
         data: alarmData,
         success: function (res) {
-          wx.showToast({
-            title: '提交成功',
-          })
+          if (res.data.code != 0) {
+            wx.showToast({
+              title: '提交失败',
+              icon: 'none'
+            })
+          } else {
+            wx.showToast({
+              title: '提交成功',
+              icon: 'none'
+            })
+          }
           console.log(res.data)
         }
       });

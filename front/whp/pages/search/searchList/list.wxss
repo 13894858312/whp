@@ -6,12 +6,15 @@
 }
 
 .resultItem{
-  border-top: 2rpx solid #666666;
   display: flex;
   min-height: 80rpx;
   line-height: 80rpx;
   padding: 10rpx;
-  background-color: #fafafa;
+  /* background-color: #fcfcfc; */
+  box-shadow: gray 0 5px 5px -5px;
+  border-top: 1rpx solid gainsboro;
+  border-left: 5rpx solid #476AF6;
+  margin-bottom: 10rpx;
 }
 
 .myItem{

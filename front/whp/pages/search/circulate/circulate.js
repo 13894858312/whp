@@ -97,7 +97,15 @@ Page({
   circulateSubmit: function (e) {
     var circularData = e.detail.value
     circularData.position = circularData.position.replace(/\s+/g, '')
-    if(circularData.bn == ""){
+    // 未登录禁止提交
+    var signature = wx.getStorageSync('signature');
+    if (signature == '') {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none'
+      })
+    }
+    else if(circularData.bn == ""){
       wx.showToast({
         title: '未填写产品批号',
         icon: 'none'
@@ -123,13 +131,22 @@ Page({
         method: 'post',
         header: {
           // 'content-type': 'application/x-www-form-urlencoded'
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'signature' : signature
         },
         data: circularData,
         success: function (res) {
-          wx.showToast({
-            title: '提交成功',
-          })
+          if (res.data.code != 0) {
+            wx.showToast({
+              title: '提交失败',
+              icon: 'none'
+            })
+          } else {
+            wx.showToast({
+              title: '提交成功',
+              icon: 'none'
+            })
+          }
           console.log(res.data)
         }
       });

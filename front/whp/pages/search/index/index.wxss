@@ -2,7 +2,7 @@
 #historyView{
   margin: 100rpx 5%;
   width: 90%;
-  border-bottom:2rpx solid #666666;
+  /* border-bottom:2rpx solid #666666; */
 }
 
 #historyHead{
@@ -25,19 +25,21 @@
   color: gray;
 }
 
-#historyList{
-  background-color: #eeeeee;
-  padding: 10rpx;
-  border-top: 2rpx solid #adabab;
-  display: inline-block;
-}
-
 .historyItem{
   display: flex;
-  min-height:80rpx;
+  min-height: 80rpx;
   line-height: 80rpx;
+  padding: 10rpx;
+  box-shadow: gray 0 5px 5px -5px;
+  border-top: 1rpx solid gainsboro;
+  border-left: 5rpx solid #476AF6;
+  margin-bottom: 10rpx;
+}
+
+.historyItemText{
+  width: 40%;
   font-size: 40rpx;
-  margin-bottom: 3rpx;
+  margin-left: 10rpx;
 }
 
 #searchView{
@@ -68,10 +70,4 @@
   line-height: 80rpx;
   border-radius: 0;
   font-size: 32rpx;
-}
-
-.historyItemText{
-  width: 40%;
-  font-size: 40rpx;
-  margin-left: 10rpx;
 }
