@@ -19,3 +19,10 @@
   font-size: 40rpx;
   margin-left: 10rpx;
 }
+
+#noData{
+  margin-top: 32rpx;
+  font-size: 40rpx;
+  color: #333333;
+  text-align: center;
+}

@@ -67,7 +67,12 @@ Page({
   },
 
   bindDelete: function(e) {
-    wx.setStorageSync('history', JSON.stringify(''));
+    wx.removeStorage({
+      key: 'history',
+    });
+    this.setData({
+      historyList: JSON.parse('[]')
+    });
     this.onLoad();
   },
 

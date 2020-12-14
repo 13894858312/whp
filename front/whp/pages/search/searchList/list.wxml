@@ -18,6 +18,6 @@
     </view>
   </block>
   <block wx:if="{{resultList.length <= 0}}">
-    <view>没有找到符合条件的数据</view>
+    <view id="noData">没有找到符合条件的数据</view>
   </block>
 </scroll-view>
