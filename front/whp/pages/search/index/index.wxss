@@ -5,16 +5,31 @@
   border-bottom:2rpx solid #666666;
 }
 
+#historyHead{
+  display: flex;
+  width: 100%;
+  padding-right: 5%;
+}
+
 #historyTitle{
+  width: 70%;
   font-size:48rpx;
   padding-bottom:10rpx;
+}
+
+#historyDelete{
+  width: 25%;
+  text-align: right;
+  padding-top: 12rpx;
+  font-size: 36rpx;
+  color: gray;
 }
 
 #historyList{
   background-color: #eeeeee;
   padding: 10rpx;
-  border-top: 2rpx solid #666666;
-
+  border-top: 2rpx solid #adabab;
+  display: inline-block;
 }
 
 .historyItem{
@@ -22,6 +37,7 @@
   min-height:80rpx;
   line-height: 80rpx;
   font-size: 40rpx;
+  margin-bottom: 3rpx;
 }
 
 #searchView{

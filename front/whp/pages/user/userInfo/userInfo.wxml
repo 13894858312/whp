@@ -1,0 +1,30 @@
+<!--pages/user/userInfo/userInfo.wxml-->
+<view id="head">
+  <view id="headText">个人中心</view>
+</view>
+
+<view id="infoView">
+  <view class="infoItem">
+    <view class="itemName">公司：</view>
+    <view class="itemContent">{{userEntity.companyId}}</view>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">部门：</view>
+    <view class="itemContent">{{userEntity.department}}</view>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">职位：</view>
+    <view class="itemContent">{{userEntity.position}}</view>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">邮箱：</view>
+    <view class="itemContent">{{userEntity.email}}</view>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">姓名：</view>
+    <view class="itemContent">{{userEntity.name}}王雪</view>
+  </view>
+</view>
+<view>
+  <button id="modifyPassword" bindtap="bindModifyPassword">修改密码</button>
+</view>

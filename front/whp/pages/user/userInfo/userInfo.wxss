@@ -1,0 +1,66 @@
+/* pages/user/userInfo/userInfo.wxss */
+#head{
+  display: inline-flex;
+  width: 90%;
+  margin-bottom: 50rpx;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#headText{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#infoView{
+  width: 80%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: 1px solid black;
+  padding: 5%;
+  margin-bottom: 50rpx;
+  box-shadow: gray 0 5px 5px -5px;
+}
+
+.infoItem{
+  display: inline-flex;
+  width: 100%;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 32rpx;
+  padding-left: 5%;
+}
+
+.itemName{
+  width: 25%;
+  display: flex;
+  font-size: 32rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+}
+
+.itemContent{
+  width: 60%;
+  height: 48rpx;
+  font-size: 32rpx;
+  line-height: 48rpx;
+  color: gray;
+}
+
+
+#modifyPassword{
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 50rpx;
+  font-size: 36rpx;
+  line-height: 72rpx;
+  height: 72rpx;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-color: #476AF6;
+  box-shadow: gray 0 5px 5px -5px;
+  color: white;
+}

@@ -13,6 +13,7 @@
 }
 
 #infoView{
+  margin-top: 20rpx;
   padding-bottom: 200rpx;
 }
 
@@ -25,15 +26,20 @@
 
 .itemHead{
   width: 97%;
-  border-top: 1rpx solid gray;
-  border-left: 5rpx solid greenyellow;
+  min-height: 72rpx;
+  line-height: 72rpx;
+  border-top: 1rpx solid gainsboro;
+  border-left: 5rpx solid #476AF6;
   padding-left: 2%;
   padding-top: 5rpx;
-  background-color: gainsboro;
+  padding-bottom: 5rpx;
+  margin-bottom: 10rpx;
+  box-shadow: gray 0 5px 5px -5px;
 }
 
 .itemName{
   display: inline;
+  font-size: 32rpx;
 }
 
 .itemInfo{

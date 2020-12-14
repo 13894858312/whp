@@ -66,6 +66,11 @@ Page({
     })
   },
 
+  bindDelete: function(e) {
+    wx.setStorageSync('history', JSON.stringify(''));
+    this.onLoad();
+  },
+
   bindHistoryItem: function (e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({

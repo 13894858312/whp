@@ -5,11 +5,10 @@
     "pages/search/detail/detail",
     "pages/search/circulate/circulate",
     "pages/search/alarm/alarm",
-    "pages/admin/alarmList/alarmList",
-    "pages/admin/alarmDetail/alarmDetail",
-    "pages/admin/chemical/addChemical",
-    "pages/admin/index/index",
-    "pages/common/qrcode/qrcode"
+    "pages/common/qrcode/qrcode",
+    "pages/user/login/login",
+    "pages/user/userInfo/userInfo",
+    "pages/user/password/password"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,10 +29,10 @@
         "text": "信息查询"
       },
       {
-        "pagePath": "pages/admin/index/index",
+        "pagePath": "pages/user/userInfo/userInfo",
         "iconPath": "image/message.png",
         "selectedIconPath": "image/message_hl.png",
-        "text": "系统管理"
+        "text": "个人中心"
       }
     ]
   },
