@@ -242,10 +242,10 @@
 <view id="navigator">
   <view class="navigatorItem" style="border-right: 1px solid gainsboro;" bindtap="toCirculate">
     <image src="../../../image/circulation.png" class="navigatorImg" mode="scaleToFill"></image>
-    上报流转信息
+    流转上报
   </view>
   <view class="navigatorItem" bindtap="toAlarm">
     <image src="../../../image/alarm.png" class="navigatorImg" mode="scaleToFill"></image>
-    报警
+    事故报警
   </view>
 </view>

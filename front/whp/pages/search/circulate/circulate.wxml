@@ -25,8 +25,12 @@
   </view>
   <view class="infoItem">
     <view class="itemName">位置信息：</view>
-    <input placeholder="坐标" style="width: 45%" name="position" value="{{position.longitude}}, {{position.latitude}}">
-    </input>
+    <block wx:if="{{position.longitude==''}}">
+      <input placeholder="坐标" style="width: 45%" name="position" value=""></input>
+    </block>
+    <block wx:else>
+      <input placeholder="坐标" style="width: 45%" name="position" value="{{position.longitude}}, {{position.latitude}}"></input>
+    </block>
     <button id="mapButton" bindtap="locate">地图</button>
   </view>
   <view class="infoItem">
