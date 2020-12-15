@@ -15,7 +15,7 @@ Page({
     var that = this;
     var cas = options.cas;
     wx.request({
-      url: 'https://chem.ufeng.top/whp/chemical/genQrCode',
+      url: 'http://121.40.243.225:8091/whp/chemical/genQrCode',
       method: 'post',
       data: { cas: cas },
       header: {
@@ -29,7 +29,7 @@ Page({
           })
         } else {
           that.setData({
-            imageUrl: 'https://chem.ufeng.top'+res.data.data
+            imageUrl: 'http://121.40.243.225:8091'+res.data.data
           });
         }
       },

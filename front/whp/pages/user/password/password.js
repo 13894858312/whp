@@ -85,7 +85,7 @@ Page({
     }
     // 验证旧密码
     wx.request({
-      url: 'https://chem.ufeng.top/whp/login/login',
+      url: 'http://121.40.243.225:8091/whp/login/login',
       data: {
         email : wx.getStorageSync('userEmail'),
         password: oldPassword
@@ -107,17 +107,20 @@ Page({
               icon: 'none'
             });
           } else {
+            // 调用登录接口会导致原signature失效，需更新
+            var signature = res.data.data.signature
+            wx.setStorageSync('signature', signature);
             var userUntity = {
               'id': wx.getStorageSync('userId'),
               'password': oldPassword
             }
             wx.request({
-              url: 'https://chem.ufeng.top/whp/user/updatePwd',
+              url: 'http://121.40.243.225:8091/whp/user/updatePwd',
               data: {userUntity: userUntity},
               method: 'post',
               header: {
                 'content-type': 'application/json',
-                'signature': wx.getStorageSync('signature')
+                'signature': signature
               },
               success: function(res){
                 if (res.data.code != 0) {

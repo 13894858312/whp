@@ -119,7 +119,7 @@ Page({
       alarmData.chemicalId = this.data.chemicalId
       var signature=wx.getStorageSync('signature');
       wx.request({
-        url: 'https://chem.ufeng.top/whp/alarm/add',
+        url: 'http://121.40.243.225:8091/whp/alarm/add',
         method: 'post',
         header: {
           // 'content-type': 'application/x-www-form-urlencoded'

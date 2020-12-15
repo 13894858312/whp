@@ -37,7 +37,7 @@ Page({
     if (wx.getStorageSync('signature') != '') {
       var id = wx.getStorageSync('userId')
       wx.request({
-        url: 'https://chem.ufeng.top/whp/user/get?id=' + id,
+        url: 'http://121.40.243.225:8091/whp/user/get?id=' + id,
         method: 'post',
         header: {
           'content-type': 'application/json',
@@ -108,7 +108,7 @@ Page({
       return;
     }
     wx.request({
-      url: 'https://chem.ufeng.top/whp/login/login',
+      url: 'http://121.40.243.225:8091/whp/login/login',
       data: {email : email, password: pswd},
       method: 'post',
       header: {
