@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userId: null,
+    userEmail: '',
     userEntity: null
   },
 
@@ -28,7 +28,7 @@ Page({
   onShow: function () {
     var that = this;
     that.setData({
-      userId: wx.getStorageSync('userId')
+      userEmail: wx.getStorageSync('userEmail')
     })
     if (wx.getStorageSync('signature') != '') {
       console.log(wx.getStorageSync('signature'))
@@ -165,15 +165,15 @@ Page({
     wx.removeStorage({
       key: 'signature',
     })
+    var that = this;
+    that.setData({
+      userEntity: null,
+      userEmail: ''
+    })
 
     wx.showToast({
       title: '退出成功',
       icon: 'none'
     })
-    setTimeout(function () {
-      wx.switchTab({
-        url: '/pages/search/index/index',
-      })
-    }, 1000)
   }
 })

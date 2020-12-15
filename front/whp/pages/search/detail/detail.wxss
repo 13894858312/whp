@@ -1,6 +1,7 @@
 /* pages/search/detail/detail.wxss */
 #detailHead{
   width: 90%;
+  margin-top: 10rpx;
   margin-bottom: 20rpx;
   margin-left: 5%;
   margin-right: 5%;
@@ -10,6 +11,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  font-size:48rpx;
 }
 
 #infoView{

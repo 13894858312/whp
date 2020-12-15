@@ -250,7 +250,7 @@ Page({
   toCirculate: function (e){
     if (wx.getStorageSync('signature') == '') {
       wx.showToast({
-        title: '只允许企业用户上报流转信息，请先登录',
+        title: '只允许企业用户上报流转信息，如需上报请先登录',
         icon: 'none'
       });
       return;

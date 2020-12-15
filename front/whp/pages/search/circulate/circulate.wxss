@@ -64,9 +64,13 @@ button{
 }
 
 #submitButton{
+  font-size: 36rpx;
+  line-height: 72rpx;
+  height: 72rpx;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
+  box-shadow: gray 0 5px 5px -5px;
 }
 
 .right{

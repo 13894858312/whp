@@ -1,6 +1,6 @@
 <!--pages/user/userInfo/userInfo.wxml-->
 <!-- 未登录 -->
-<block wx:if="{{userId==null}}">
+<block wx:if="{{userEmail==''}}">
   <view id="head">
     <view id="headText">用户登录</view>
   </view>
