@@ -88,7 +88,7 @@ Page({
       url: 'https://chem.ufeng.top/whp/login/login',
       data: {
         email : wx.getStorageSync('userEmail'),
-         password: oldPassword
+        password: oldPassword
       },
       method: 'post',
       header: {
@@ -97,28 +97,27 @@ Page({
       success: function(res){
         if (res.data.code != 0) {
           wx.showToast({
-            title: '旧密码验证失败，请重试',
+            title: '验证失败，请重试',
             icon: 'none'
           })
         } else {
-          if (res.data.userEntity == null) {
+          if (res.data.data.signature == null) {
             wx.showToast({
-              title: '用户名或密码错误',
+              title: '旧密码错误',
               icon: 'none'
             });
           } else {
+            var userUntity = {
+              'id': wx.getStorageSync('userId'),
+              'password': oldPassword
+            }
             wx.request({
-              url: 'https://chem.ufeng.top/whp/user/updatePassword',
-              data: {userEntity: 
-                  {
-                    id: wx.getStorageSync('userId'),
-                    password: newPassword
-                  }                
-              },
+              url: 'https://chem.ufeng.top/whp/user/updatePwd',
+              data: {userUntity: userUntity},
               method: 'post',
               header: {
                 'content-type': 'application/json',
-                'signature': that.data.signature
+                'signature': wx.getStorageSync('signature')
               },
               success: function(res){
                 if (res.data.code != 0) {

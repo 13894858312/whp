@@ -21,10 +21,23 @@ Page({
       userId: wx.getStorageSync('userId'),
       userEmail: wx.getStorageSync('userEmail')
     })
-    if (that.data.signature != '') {
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    if (wx.getStorageSync('signature') != '') {
+      var id = wx.getStorageSync('userId')
       wx.request({
-        url: 'https://chem.ufeng.top/whp/user/get',
-        data: {id: that.data.userId},
+        url: 'https://chem.ufeng.top/whp/user/get?id=' + id,
         method: 'post',
         header: {
           'content-type': 'application/json',
@@ -45,20 +58,6 @@ Page({
         }
       });
     }
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**
@@ -116,26 +115,25 @@ Page({
         'content-type': 'application/json'
       },
       success: function(res){
-
         if (res.data.code != 0) {
           wx.showToast({
             title: '登录失败，请重试',
             icon: 'none'
           })
         } else {
-          if (res.data.userEntity == null) {
+          if (res.data.data.userEntity == null) {
             wx.showToast({
               title: '用户名或密码错误',
               icon: 'none'
             });
           } else {
             // 缓存signature和id
-            wx.setStorageSync('signature', res.signature);
-            wx.setStorageSync('userId', res.data.userEntity.id);
+            wx.setStorageSync('signature', res.data.data.signature);
+            wx.setStorageSync('userId', res.data.data.userEntity.id);
             wx.setStorageSync('userEmail', email)
             // 弹框
             wx.showToast({
-              title: '欢迎您' + res.data.userEntity.name,
+              title: '欢迎您，' + res.data.data.userEntity.name,
               icon: 'none'
             })
             // 刷新页面

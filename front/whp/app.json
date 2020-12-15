@@ -6,7 +6,6 @@
     "pages/search/circulate/circulate",
     "pages/search/alarm/alarm",
     "pages/common/qrcode/qrcode",
-    "pages/user/login/login",
     "pages/user/userInfo/userInfo",
     "pages/user/password/password"
   ],

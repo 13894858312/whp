@@ -1,6 +1,6 @@
 <!--pages/user/userInfo/userInfo.wxml-->
 <!-- 未登录 -->
-<!-- <block wx:if="{{signature==''}}"> -->
+<block wx:if="{{signature==''}}">
   <view id="head">
     <view id="headText">用户登录</view>
   </view>
@@ -21,10 +21,10 @@
     </view>
   </form>
   <view id="demo">如需注册账号请联系贵企业管理员</view>
-<!-- </block> -->
+</block>
 
 <!-- 已登录 -->
-<!-- <block wx:else> -->
+<block wx:else>
   <view id="head">
     <view id="headText">个人中心</view>
   </view>
@@ -48,10 +48,10 @@
     </view>
     <view class="infoItem">
       <view class="itemName">姓名：</view>
-      <view class="itemContent">{{userEntity.name}}王雪</view>
+      <view class="itemContent">{{userEntity.name}}</view>
     </view>
   </view>
   <view>
     <button id="modifyPassword" bindtap="bindModifyPassword">修改密码</button>
   </view>
-<!-- </block> -->
+</block>
