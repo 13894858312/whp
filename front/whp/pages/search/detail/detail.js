@@ -4,7 +4,7 @@ Page({
    */
   data: {
     detail:undefined,
-    basicInfoHidden: true,
+    basicInfoHidden: false,
     emergencyHidden: true,
     propertyHidden: true,
     GHSHidden: true,
