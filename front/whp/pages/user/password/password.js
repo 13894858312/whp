@@ -82,68 +82,37 @@ Page({
       });
       return;
     }
-    // 验证旧密码
+    var userUntity = {
+      id: wx.getStorageSync('userId'),
+      password: newPassword
+    }
+    // 暂无验证原密码逻辑
     wx.request({
-      url: 'http://121.40.243.225:8091/whp/login/login',
-      data: {
-        email : wx.getStorageSync('userEmail'),
-        password: oldPassword
-      },
+      url: 'http://121.40.243.225:8091/whp/user/updatePwd',
+      data: userUntity,
       method: 'post',
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'signature': wx.getStorageSync('signature')
       },
       success: function(res){
         if (res.data.code != 0) {
           wx.showToast({
-            title: '验证失败，请重试',
+            title: '修改密码失败，请重试',
             icon: 'none'
           })
         } else {
-
-          if (res.data.data.signature == '') {
-            wx.showToast({
-              title: '旧密码错误',
-              icon: 'none'
-            });
-          } else {
-            // 调用登录接口会导致原signature失效，需更新
-            var signature = res.data.data.signature
-            wx.setStorageSync('signature', JSON.stringify(signature));
-            var userUntity = {
-              'id': wx.getStorageSync('userId'),
-              'password': newPassword
-            }
-            wx.request({
-              url: 'http://121.40.243.225:8091/whp/user/updatePwd',
-              data: userUntity,
-              method: 'post',
-              header: {
-                'content-type': 'application/json',
-                'signature': signature
-              },
-              success: function(res){
-                if (res.data.code != 0) {
-                  wx.showToast({
-                    title: '修改密码失败，请重试',
-                    icon: 'none'
-                  })
-                } else {
-                  wx.showToast({
-                    title: '修改成功',
-                    icon: 'none'
-                  });
-                  setTimeout(function () {
-                    wx.navigateBack({
-                      delta: 0,
-                    })
-                  }, 1000);
-                }
-                console.log("修改密码res" + JSON.stringify(res.data))
-              }
+          wx.showToast({
+            title: '修改成功',
+            icon: 'none'
+          });
+          setTimeout(function () {
+            wx.navigateBack({
+              delta: 0,
             })
-          }
+          }, 1000);
         }
+        console.log("修改密码res" + JSON.stringify(res.data))
       }
     })
   }

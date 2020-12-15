@@ -146,6 +146,12 @@ Page({
               title: '提交成功',
               icon: 'none'
             })
+
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 0,
+              })
+            }, 1000);
           }
           console.log(res.data)
         }
