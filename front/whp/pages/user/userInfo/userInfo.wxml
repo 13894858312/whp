@@ -1,6 +1,6 @@
 <!--pages/user/userInfo/userInfo.wxml-->
 <!-- 未登录 -->
-<block wx:if="{{signature==''}}">
+<block wx:if="{{userId==null}}">
   <view id="head">
     <view id="headText">用户登录</view>
   </view>
@@ -52,6 +52,7 @@
     </view>
   </view>
   <view>
-    <button id="modifyPassword" bindtap="bindModifyPassword">修改密码</button>
+    <button class="userInfoButton" bindtap="bindModifyPassword">修改密码</button>
+    <button class="userInfoButton" bindtap="bindLogOut">退出登录</button>
   </view>
 </block>

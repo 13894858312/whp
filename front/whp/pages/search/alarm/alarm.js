@@ -116,6 +116,7 @@ Page({
       })
     }
     else {
+      console.log(alarmData)
       alarmData.chemicalId = this.data.chemicalId
       var signature=wx.getStorageSync('signature');
       wx.request({

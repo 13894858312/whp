@@ -248,6 +248,13 @@ Page({
   },
 
   toCirculate: function (e){
+    if (wx.getStorageSync('signature') == '') {
+      wx.showToast({
+        title: '只允许企业用户上报流转信息，请先登录',
+        icon: 'none'
+      });
+      return;
+    }
     var url = '/pages/search/circulate/circulate'
     var param = '?chemicalId=' + this.data.detail.id + '&chemicalName=' + this.data.detail.cnName
     url = url + param

@@ -65,7 +65,6 @@ Page({
   },
 
   modifyPassword: function(e) {
-    var that = this;
     var oldPassword = e.detail.value.oldPassword;
     var newPassword = e.detail.value.newPassword;
     var reinput = e.detail.value.reinput;
@@ -101,7 +100,8 @@ Page({
             icon: 'none'
           })
         } else {
-          if (res.data.data.signature == null) {
+
+          if (res.data.data.signature == '') {
             wx.showToast({
               title: '旧密码错误',
               icon: 'none'
@@ -109,14 +109,14 @@ Page({
           } else {
             // 调用登录接口会导致原signature失效，需更新
             var signature = res.data.data.signature
-            wx.setStorageSync('signature', signature);
+            wx.setStorageSync('signature', JSON.stringify(signature));
             var userUntity = {
               'id': wx.getStorageSync('userId'),
-              'password': oldPassword
+              'password': newPassword
             }
             wx.request({
               url: 'http://121.40.243.225:8091/whp/user/updatePwd',
-              data: {userUntity: userUntity},
+              data: userUntity,
               method: 'post',
               header: {
                 'content-type': 'application/json',
@@ -134,12 +134,12 @@ Page({
                     icon: 'none'
                   });
                   setTimeout(function () {
-                    wx.redirectTo({
-                      url: '/pages/user/userInfo/userInfo'
+                    wx.navigateBack({
+                      delta: 0,
                     })
                   }, 1000);
                 }
-                console.log(res.data)
+                console.log("修改密码res" + JSON.stringify(res.data))
               }
             })
           }

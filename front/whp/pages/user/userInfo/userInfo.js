@@ -5,22 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    signature: '',
-    userId: '',
-    userEmail: '',
-    userEntity: undefined
+    userId: null,
+    userEntity: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    that.setData({
-      signature: wx.getStorageSync('signature'),
-      userId: wx.getStorageSync('userId'),
-      userEmail: wx.getStorageSync('userEmail')
-    })
   },
 
   /**
@@ -34,7 +26,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this;
+    that.setData({
+      userId: wx.getStorageSync('userId')
+    })
     if (wx.getStorageSync('signature') != '') {
+      console.log(wx.getStorageSync('signature'))
       var id = wx.getStorageSync('userId')
       wx.request({
         url: 'http://121.40.243.225:8091/whp/user/get?id=' + id,
@@ -52,9 +49,10 @@ Page({
           }
           else {
             that.setData({
-              userEntity: res.data.userEntity
+              userEntity: res.data.data
             });
           }
+          console.log(res.data)
         }
       });
     }
@@ -152,8 +150,30 @@ Page({
   },
 
   bindModifyPassword: function() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/user/password/password'
     })
+  },
+
+  bindLogOut: function() {
+    wx.removeStorage({
+      key: 'userId',
+    })
+    wx.removeStorage({
+      key: 'userEmail',
+    })
+    wx.removeStorage({
+      key: 'signature',
+    })
+
+    wx.showToast({
+      title: '退出成功',
+      icon: 'none'
+    })
+    setTimeout(function () {
+      wx.switchTab({
+        url: '/pages/search/index/index',
+      })
+    }, 1000)
   }
 })
