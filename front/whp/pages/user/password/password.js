@@ -88,7 +88,7 @@ Page({
     }
     // 暂无验证原密码逻辑
     wx.request({
-      url: 'http://121.40.243.225:8091/whp/user/updatePwd',
+      url: 'https://chem.ufeng.top/whp/user/updatePwd',
       data: userUntity,
       method: 'post',
       header: {

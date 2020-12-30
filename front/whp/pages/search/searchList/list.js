@@ -19,7 +19,7 @@ Page({
 
     var that = this;
     wx.request({
-      url: 'http://121.40.243.225:8091/whp/chemical/getChemicals',
+      url: 'https://chem.ufeng.top/whp/chemical/getChemicals',
       data: {cas: options.cas, name: options.name},
       method: 'post',
       success: function(res){
